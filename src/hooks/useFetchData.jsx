@@ -1,23 +1,26 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const useFetchData = () => {
+const useFetchData = (query) => {
+  const { city, code } = query;
+  // console.log(city, code);
   const [response, setResponse] = useState([]);
 
   useEffect(() => {
-    (async (query = 'izmir') => {
-      const { data } = await axios.get(
-        `https://api.geoapify.com/v1/geocode/autocomplete?text=${query}&format=json&apiKey=${process.env.REACT_APP_CITY_API_KEY}`
-      );
-      console.log(data);
-      const { city, country_code: code } = data.results[0];
-      const { data: res } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city},${code}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
-      );
-      setResponse(res);
-    })();
-  }, []);
-
+    city &&
+      code &&
+      (async () => {
+        try {
+          const { data } = await axios.get(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city},${code}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+          );
+          setResponse(data);
+        } catch (error) {
+          console.log('Error', error.response.data.message);
+        }
+      })();
+  }, [city, code]);
+  console.log('sfsafsfa', response);
   return response;
 };
 

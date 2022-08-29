@@ -1202,6 +1202,16 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@geoapify/geocoder-autocomplete@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@geoapify/geocoder-autocomplete/-/geocoder-autocomplete-1.4.1.tgz#81c82ae228e5a4c48f42076d5d7b7d5a7efdba0d"
+  integrity sha512-acLxrBgf55jg25gvG3Oaq1maJgcbApfg5oSaGfVu588XYw/VmsTW3S8rQ+bzej/8zmbyhIjce6AV8fnfq4kzHw==
+
+"@geoapify/react-geocoder-autocomplete@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@geoapify/react-geocoder-autocomplete/-/react-geocoder-autocomplete-1.3.1.tgz#40c016aa157e63241c57de006048bb3530c6685f"
+  integrity sha512-aI3QFbKcYIfZbUWkzah5ql7YPrDqJddptXH4sb3dC3y2bdl/sFqaMtxGr7LrZZsWDVZe8vouLTc049UOvxlxWA==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"
