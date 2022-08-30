@@ -5,7 +5,6 @@ const withContext = (WrappedComponent) => {
   // const history = localStorage.getItem("his")
   return (props) => {
     const { response, setResponse } = useContext(AppContext);
-    console.log('dsdgdsgds', response);
     return (
       <WrappedComponent
         response={response}

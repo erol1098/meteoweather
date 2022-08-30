@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyledContainer } from '../Style/styled-componets';
 
 const DetailPage = () => {
-  return <div>DetailPage</div>;
+  return <StyledContainer>DetailPage</StyledContainer>;
 };
 
 export default DetailPage;

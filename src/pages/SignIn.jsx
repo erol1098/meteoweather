@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyledContainer } from '../Style/styled-componets';
 
 const SignIn = () => {
-  return <div>SignIn</div>;
+  return <StyledContainer>SignIn</StyledContainer>;
 };
 
 export default SignIn;
