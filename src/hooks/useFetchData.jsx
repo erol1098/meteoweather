@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
+import AppContext from '../context/app-context';
 
-const useFetchData = (query) => {
-  const { city, code } = query;
-  // console.log(city, code);
-  const [response, setResponse] = useState([]);
+const useFetchData = ({ city, code }) => {
+  const { response, setResponse } = useContext(AppContext);
 
   useEffect(() => {
     city &&
@@ -19,8 +18,8 @@ const useFetchData = (query) => {
           console.log('Error', error.response.data.message);
         }
       })();
-  }, [city, code]);
-  console.log('sfsafsfa', response);
+  }, [city, code, setResponse]);
+
   return response;
 };
 
