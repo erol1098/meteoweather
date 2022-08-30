@@ -42,9 +42,8 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledCard = styled.section`
-  width: 25rem;
+  width: 22rem;
   height: 33rem;
-
   padding: 1rem 0;
   background-color: #fff;
   display: flex;
@@ -97,7 +96,7 @@ export const StyledCard = styled.section`
       align-items: center;
 
       & > .current-temp {
-        font-size: 2rem;
+        font-size: 2.3rem;
         letter-spacing: 0.1rem;
       }
     }

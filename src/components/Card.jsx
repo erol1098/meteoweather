@@ -19,7 +19,7 @@ const Card = ({ data }) => {
             hour: 'numeric',
             minute: 'numeric',
             hour12: true,
-          }).format(data?.dt)}
+          }).format(new Date())}
         </span>
       </div>
       <div className='card-content'>
@@ -62,14 +62,14 @@ const Card = ({ data }) => {
       <div className='card-footer'>
         <p>
           {new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(
-            data?.dt
+            new Date()
           )}
         </p>
         <p>
           {new Intl.DateTimeFormat('en-US', {
             month: 'long',
             day: 'numeric',
-          }).format(data?.dt)}
+          }).format(new Date())}
         </p>
       </div>
     </StyledCard>
