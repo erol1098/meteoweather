@@ -43,6 +43,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  background-color: #ff5f5d;
 
   & .geocoder-container {
     display: flex;

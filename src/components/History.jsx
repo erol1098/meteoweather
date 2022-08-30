@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledTable } from '../Style/styled-componets';
 
-const History = ({ response, queries }) => {
+const History = ({ queries }) => {
   return (
     <StyledTable>
       <tbody>
