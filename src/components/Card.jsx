@@ -4,9 +4,9 @@ import { StyledCard } from '../Style/styled-componets';
 import { BsDroplet } from 'react-icons/bs';
 import { GiWindsock, GiRoundKnob } from 'react-icons/gi';
 import { GrMapLocation } from 'react-icons/gr';
-const Card = ({ data }) => {
+const Card = ({ data, scale }) => {
   return (
-    <StyledCard>
+    <StyledCard scale={scale}>
       <div className='card-header'>
         <div className='location'>
           <GrMapLocation size={30} />

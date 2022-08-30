@@ -14,10 +14,13 @@ body {
 
 export const StyledContainer = styled.main`
   width: 100%;
-  height: 100vh;
-  max-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 5rem);
   padding: 3rem;
   background-color: aliceblue;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
 `;
 
 export const StyledHeader = styled.header`
@@ -42,6 +45,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledCard = styled.section`
+  transform: scale(${(props) => props.scale});
   width: 22rem;
   height: 33rem;
   padding: 1rem 0;
@@ -53,7 +57,11 @@ export const StyledCard = styled.section`
   gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 1rem;
-
+  cursor: pointer;
+  transition: transform 1s;
+  &:hover {
+    transform: scale(105%);
+  }
   & > .card-header {
     width: 100%;
     height: 3rem;

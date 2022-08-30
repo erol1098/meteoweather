@@ -15,16 +15,13 @@ const Header = () => {
 
   const onPlaceSelect = (value) => {
     setQuery({
-      city: value.properties.city,
-      code: value.properties.country_code,
+      city: value?.properties?.city,
+      code: value?.properties?.country_code,
     });
   };
 
-  // const onSuggectionChange = (value) => {
-  //   console.log('first', value);
-  // };
   const postprocessHook = (feature) => {
-    return `${feature.properties.city} - ${feature.properties.country}`;
+    return `${feature?.properties?.city} - ${feature?.properties?.country}`;
   };
   return (
     <StyledHeader>
@@ -33,7 +30,6 @@ const Header = () => {
         <GeoapifyGeocoderAutocomplete
           placeholder='Enter address here'
           placeSelect={onPlaceSelect}
-          // suggestionsChange={onSuggectionChange}
           postprocessHook={postprocessHook}
         />
       </GeoapifyContext>
