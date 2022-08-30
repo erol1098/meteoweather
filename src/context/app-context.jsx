@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
-  const [response, setResponse] = useState([]);
+  const [response, setResponse] = useState();
 
   const values = { response, setResponse };
 

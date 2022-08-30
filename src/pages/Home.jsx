@@ -5,9 +5,7 @@ import { StyledContainer } from '../Style/styled-componets';
 
 const Home = ({ response }) => {
   return (
-    <StyledContainer>
-      <Card data={response} />
-    </StyledContainer>
+    <StyledContainer>{response && <Card data={response} />}</StyledContainer>
   );
 };
 

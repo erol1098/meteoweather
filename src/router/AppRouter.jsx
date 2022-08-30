@@ -19,7 +19,7 @@ const AppRouter = () => {
         <Route path='details' element={<DetailPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };
