@@ -12,8 +12,8 @@ const Home = ({ response }) => {
     if (localStorage.getItem('history') && response) {
       const arr = JSON.parse(localStorage.getItem('history'));
       arr.unshift(response);
-      localStorage.setItem('history', JSON.stringify(arr.slice(0, 3)));
-      setQueries(arr.slice(0, 3));
+      localStorage.setItem('history', JSON.stringify(arr.slice(0, 4)));
+      setQueries(arr.slice(0, 4));
     } else {
       response &&
         localStorage.setItem('history', JSON.stringify([response])) &&
@@ -23,15 +23,29 @@ const Home = ({ response }) => {
 
   return (
     <StyledContainer>
-      {localStorage.getItem('history') && (
+      <div className='response-item'>
+        {response && <Card data={response} scale={1} />}
+      </div>
+      {response ? (
         <>
-          {queries?.map((item, i) => (
-            <Card data={item} scale={i ? 0.75 : 1} />
-          ))}
+          {localStorage.getItem('history') && (
+            <div className='history-items'>
+              {queries?.slice(1)?.map((item, i) => (
+                <Card key={i} data={item} scale={0.75} />
+              ))}
+            </div>
+          )}
         </>
-      )}
-      {!localStorage.getItem('history') && response && (
-        <Card data={response} scale={1} />
+      ) : (
+        <>
+          {localStorage.getItem('history') && (
+            <div className='history-items'>
+              {queries?.map((item, i) => (
+                <Card key={i} data={item} scale={0.75} />
+              ))}
+            </div>
+          )}
+        </>
       )}
     </StyledContainer>
   );

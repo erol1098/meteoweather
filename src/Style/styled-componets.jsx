@@ -18,9 +18,20 @@ export const StyledContainer = styled.main`
   padding: 3rem;
   background-color: aliceblue;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
+
+  & > .history-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  & > .response-item {
+    display: flex;
+  }
 `;
 
 export const StyledHeader = styled.header`
@@ -60,7 +71,7 @@ export const StyledCard = styled.section`
   cursor: pointer;
   transition: transform 1s;
   &:hover {
-    transform: scale(105%);
+    /* transform: scale(105%); */
   }
   & > .card-header {
     width: 100%;
