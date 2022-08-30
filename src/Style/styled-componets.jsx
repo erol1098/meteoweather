@@ -9,28 +9,37 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   font-family: 'Poppins', sans-serif;
+  background-color:lightgrey;
 }
 `;
 
 export const StyledContainer = styled.main`
   width: 100%;
-  min-height: calc(100vh - 5rem);
-  padding: 3rem;
-  background-color: aliceblue;
+  min-height: calc(100vh - 10rem);
+  padding: 0.5rem 0 3rem 3rem;
+  /* background-color: aliceblue; */
   display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-  gap: 1rem;
+  /* gap: 1rem; */
 
   & > .history-items {
+    /* width: 50%; */
+    /* height: 100%;
+    display: grid;
+    grid-template-columns: 14rem 23rem;
+    grid-template-rows: 22rem 22rem;
+    overflow-x: auto; */
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex: 1;
   }
   & > .response-item {
+    /* width: 50%; */
+    height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
 `;
 
@@ -41,6 +50,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  background-color: lavenderblush;
 
   & .geocoder-container {
     display: flex;
@@ -57,6 +67,9 @@ export const StyledHeader = styled.header`
 
 export const StyledCard = styled.section`
   transform: scale(${(props) => props.scale});
+  /* margin-top: ${(props) => (props.scale !== 1 ? '0' : '-9rem')}; */
+  box-sizing: content-box;
+  transform-origin: top right;
   width: 22rem;
   height: 33rem;
   padding: 1rem 0;
@@ -70,9 +83,7 @@ export const StyledCard = styled.section`
   border-radius: 1rem;
   cursor: pointer;
   transition: transform 1s;
-  &:hover {
-    /* transform: scale(105%); */
-  }
+
   & > .card-header {
     width: 100%;
     height: 3rem;

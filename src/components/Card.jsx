@@ -11,7 +11,8 @@ const Card = ({ data, scale }) => {
         <div className='location'>
           <GrMapLocation size={30} />
           <p>
-            <span>{data?.name}</span> <span>{data?.sys?.country}</span>
+            <span>{data?.name?.replace(' Province', '')}</span>{' '}
+            <span>{data?.sys?.country}</span>
           </p>
         </div>
         <span>

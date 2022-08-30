@@ -24,14 +24,14 @@ const Home = ({ response }) => {
   return (
     <StyledContainer>
       <div className='response-item'>
-        {response && <Card data={response} scale={1} />}
+        {response ? <Card data={response} scale={1} /> : <p>Item goes here</p>}
       </div>
       {response ? (
         <>
           {localStorage.getItem('history') && (
             <div className='history-items'>
               {queries?.slice(1)?.map((item, i) => (
-                <Card key={i} data={item} scale={0.75} />
+                <Card key={i} data={item} scale={0.4} />
               ))}
             </div>
           )}
@@ -40,8 +40,8 @@ const Home = ({ response }) => {
         <>
           {localStorage.getItem('history') && (
             <div className='history-items'>
-              {queries?.map((item, i) => (
-                <Card key={i} data={item} scale={0.75} />
+              {queries?.slice(0, 3)?.map((item, i) => (
+                <Card key={i} data={item} scale={0.6} />
               ))}
             </div>
           )}
