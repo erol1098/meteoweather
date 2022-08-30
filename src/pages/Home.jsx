@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
+import History from '../components/History';
 import withContext from '../hocs/withContext';
 import { StyledContainer } from '../Style/styled-componets';
 
@@ -26,27 +27,9 @@ const Home = ({ response }) => {
       <div className='response-item'>
         {response ? <Card data={response} scale={1} /> : <p>Item goes here</p>}
       </div>
-      {response ? (
-        <>
-          {localStorage.getItem('history') && (
-            <div className='history-items'>
-              {queries?.slice(1)?.map((item, i) => (
-                <Card key={i} data={item} scale={0.4} />
-              ))}
-            </div>
-          )}
-        </>
-      ) : (
-        <>
-          {localStorage.getItem('history') && (
-            <div className='history-items'>
-              {queries?.slice(0, 3)?.map((item, i) => (
-                <Card key={i} data={item} scale={0.6} />
-              ))}
-            </div>
-          )}
-        </>
-      )}
+      <div className='history-items'>
+        <History queries={queries} />
+      </div>
     </StyledContainer>
   );
 };

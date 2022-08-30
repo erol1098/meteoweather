@@ -16,27 +16,19 @@ body {
 export const StyledContainer = styled.main`
   width: 100%;
   min-height: calc(100vh - 10rem);
-  padding: 0.5rem 0 3rem 3rem;
-  /* background-color: aliceblue; */
+  padding: 3rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  /* gap: 1rem; */
+  gap: 5rem;
 
   & > .history-items {
-    /* width: 50%; */
-    /* height: 100%;
-    display: grid;
-    grid-template-columns: 14rem 23rem;
-    grid-template-rows: 22rem 22rem;
-    overflow-x: auto; */
     display: flex;
     justify-content: center;
   }
+
   & > .response-item {
-    /* width: 50%; */
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -44,7 +36,6 @@ export const StyledContainer = styled.main`
 `;
 
 export const StyledHeader = styled.header`
-  border: 1px solid red;
   height: 5rem;
   display: flex;
   justify-content: space-between;
@@ -67,10 +58,9 @@ export const StyledHeader = styled.header`
 
 export const StyledCard = styled.section`
   transform: scale(${(props) => props.scale});
-  /* margin-top: ${(props) => (props.scale !== 1 ? '0' : '-9rem')}; */
   box-sizing: content-box;
   transform-origin: top right;
-  width: 22rem;
+  width: 30rem;
   height: 33rem;
   padding: 1rem 0;
   background-color: #fff;
@@ -165,6 +155,45 @@ export const StyledCard = styled.section`
     border-top: 2px solid blue;
     font-size: 1.2rem;
     font-weight: 600;
+  }
+`;
+
+export const StyledTable = styled.table`
+  width: 30rem;
+  border-collapse: separate;
+  border-spacing: 0 0.3rem;
+  font-size: 1.3rem;
+  color: #fff;
+
+  & tr {
+    height: 5rem;
+    margin-bottom: 1rem;
+    background-color: rgba(78, 117, 141, 0.6);
+  }
+
+  & td {
+    cursor: pointer;
+  }
+
+  & td:first-child {
+    font-size: 1.3rem;
+    font-weight: 800;
+    padding: 0 1rem;
+    width: 10rem;
+    text-align: center;
+  }
+
+  & td:nth-child(2) {
+    width: 5rem;
+    text-align: center;
+  }
+
+  & td:last-child {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.3rem;
+    width: 15rem;
+    text-align: center;
   }
 `;
 
