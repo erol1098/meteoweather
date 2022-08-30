@@ -25,7 +25,7 @@ const Home = ({ response }) => {
   return (
     <StyledContainer>
       <div className='response-item'>
-        {response ? <Card data={response} scale={1} /> : <p>Item goes here</p>}
+        {response ? <Card data={response} /> : <p>Item goes here</p>}
       </div>
       <div className='history-items'>
         <History queries={queries} />

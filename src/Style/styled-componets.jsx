@@ -9,7 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background-color:lightgrey;
+  background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff); 
+  /* background: linear-gradient(to right bottom,#0575e6, #00f260 ); */
+
 }
 `;
 
@@ -20,7 +22,7 @@ export const StyledContainer = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 5rem;
 
   & > .history-items {
@@ -41,28 +43,31 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: lavenderblush;
 
   & .geocoder-container {
     display: flex;
     align-items: center;
-    border: 1px solid blue;
     width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    background-color: #fff;
 
     & input {
       border: none;
       text-indent: 2rem;
+      font-size: 1.3rem;
     }
   }
 `;
 
 export const StyledCard = styled.section`
-  transform: scale(${(props) => props.scale});
   box-sizing: content-box;
   transform-origin: top right;
   width: 30rem;
   height: 33rem;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -73,17 +78,26 @@ export const StyledCard = styled.section`
   border-radius: 1rem;
   cursor: pointer;
   transition: transform 1s;
+  background: linear-gradient(
+    to right,
+    rgba(0, 92, 151, 0.4),
+    rgba(54, 55, 149, 0.4)
+  );
+
+  color: #fff;
 
   & > .card-header {
     width: 100%;
-    height: 3rem;
+    height: 4rem;
     padding: 0 1rem;
-    font-size: 1.3rem;
+    border-radius: 1rem 1rem 0 0;
+    font-size: 1.5rem;
     font-weight: 600;
-    border-bottom: 2px solid blue;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #00121e;
+    background-color: #ff5f5d;
     & > .location {
       display: flex;
       justify-content: flex-start;
@@ -93,6 +107,7 @@ export const StyledCard = styled.section`
   }
 
   & > .card-content {
+    flex: 1;
     width: 100%;
     height: 23rem;
     padding: 0 1rem;
@@ -103,6 +118,8 @@ export const StyledCard = styled.section`
 
     & > .temps {
       width: 100%;
+      font-size: 1.3rem;
+      font-weight: 600;
       text-align: start;
     }
 
@@ -114,10 +131,12 @@ export const StyledCard = styled.section`
       gap: 0.2rem;
       justify-content: center;
       align-items: center;
+      font-size: 1.3rem;
 
       & > .current-temp {
-        font-size: 2.3rem;
+        font-size: 3rem;
         letter-spacing: 0.1rem;
+        font-weight: 800;
       }
     }
     & > .img-wrapper {
@@ -134,9 +153,10 @@ export const StyledCard = styled.section`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 1.3rem;
+      background-color: #00375b;
 
       & > span {
-        /* width: 33%; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -147,14 +167,15 @@ export const StyledCard = styled.section`
 
   & > .card-footer {
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 2px solid blue;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
+    background-color: #00121e;
+    border-radius: 0 0 1rem 1rem;
   }
 `;
 
@@ -168,7 +189,7 @@ export const StyledTable = styled.table`
   & tr {
     height: 5rem;
     margin-bottom: 1rem;
-    background-color: rgba(78, 117, 141, 0.6);
+    background: linear-gradient(to right, #005c97, #363795);
   }
 
   & td {
