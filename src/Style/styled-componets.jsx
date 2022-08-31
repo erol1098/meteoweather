@@ -219,6 +219,29 @@ export const StyledTable = styled.table`
   }
 `;
 
+export const StyledDailyContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  width: 80%;
+  margin: 0 auto;
+  overflow: auto;
+`;
+
+export const StyledDaily = styled.div`
+  width: 10rem;
+  height: 10rem;
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  background-color: greenyellow;
+`;
+
 export const StyledFooter = styled.footer`
   width: 100%;
   height: 5rem;
