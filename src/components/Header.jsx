@@ -11,7 +11,7 @@ import { StyledHeader } from '../Style/styled-componets';
 
 const Header = () => {
   const [query, setQuery] = useState({ city: '', code: '' });
-  useFetchData(query);
+  useFetchData(query, 'current');
 
   const onPlaceSelect = (value) => {
     setQuery({

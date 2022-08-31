@@ -2,13 +2,14 @@ import { useContext } from 'react';
 import AppContext from '../context/app-context';
 
 const withContext = (WrappedComponent) => {
-  // const history = localStorage.getItem("his")
   return (props) => {
-    const { response, setResponse } = useContext(AppContext);
+    const { response, setResponse, daily, setDaily } = useContext(AppContext);
     return (
       <WrappedComponent
         response={response}
         setResponse={setResponse}
+        daily={daily}
+        setDaily={setDaily}
         {...props}
       />
     );

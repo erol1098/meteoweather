@@ -3,7 +3,7 @@ import React from 'react';
 import { StyledCard } from '../Style/styled-componets';
 import { BsDroplet } from 'react-icons/bs';
 import { GiWindsock, GiRoundKnob } from 'react-icons/gi';
-import { GrMapLocation } from 'react-icons/gr';
+import { GoLocation } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
 const Card = ({ data }) => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Card = ({ data }) => {
     >
       <div className='card-header'>
         <div className='location'>
-          <GrMapLocation size={30} />
+          <GoLocation size={30} />
           <p>
             <span>{data?.name?.replace(' Province', '')}</span>{' '}
             <span>{data?.sys?.country}</span>
@@ -28,7 +28,7 @@ const Card = ({ data }) => {
             hour: 'numeric',
             minute: 'numeric',
             hour12: true,
-          }).format(new Date())}
+          }).format(data?.dt * 1000)}
         </span>
       </div>
       <div className='card-content'>
@@ -71,14 +71,14 @@ const Card = ({ data }) => {
       <div className='card-footer'>
         <p>
           {new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(
-            new Date()
+            data?.dt * 1000
           )}
         </p>
         <p>
           {new Intl.DateTimeFormat('en-US', {
             month: 'long',
             day: 'numeric',
-          }).format(new Date())}
+          }).format(data?.dt * 1000)}
         </p>
       </div>
     </StyledCard>
