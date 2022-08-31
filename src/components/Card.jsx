@@ -4,9 +4,17 @@ import { StyledCard } from '../Style/styled-componets';
 import { BsDroplet } from 'react-icons/bs';
 import { GiWindsock, GiRoundKnob } from 'react-icons/gi';
 import { GrMapLocation } from 'react-icons/gr';
-const Card = ({ data, scale }) => {
+import { useNavigate } from 'react-router-dom';
+const Card = ({ data }) => {
+  const navigate = useNavigate();
   return (
-    <StyledCard scale={scale}>
+    <StyledCard
+      onClick={() =>
+        navigate(
+          `/details/${data?.name?.toLowerCase()}-${data?.sys?.country?.toLowerCase()}`
+        )
+      }
+    >
       <div className='card-header'>
         <div className='location'>
           <GrMapLocation size={30} />

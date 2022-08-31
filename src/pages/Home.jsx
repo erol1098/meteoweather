@@ -23,11 +23,9 @@ const Home = ({ response }) => {
   return (
     <StyledContainer>
       <div className='response-item'>
-        {response ? (
-          <Card data={response} />
-        ) : (
-          <Card data={defaultQuery} /> || <p>Item Goes Here!</p>
-        )}
+        {response && <Card data={response} />}
+        {!response && defaultQuery && <Card data={defaultQuery} />}
+        {!response && !defaultQuery && <p>Item Goes Here!</p>}
       </div>
       <div className='history-items'>
         <History queries={queries} />

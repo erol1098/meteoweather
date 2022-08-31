@@ -23,6 +23,7 @@ const Header = () => {
   const postprocessHook = (feature) => {
     return `${feature?.properties?.city} - ${feature?.properties?.country}`;
   };
+
   return (
     <StyledHeader>
       <div>Logo</div>

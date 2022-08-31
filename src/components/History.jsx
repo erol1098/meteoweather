@@ -5,8 +5,8 @@ const History = ({ queries }) => {
   return (
     <StyledTable>
       <tbody>
-        {queries?.map((query) => (
-          <tr>
+        {queries?.map((query, i) => (
+          <tr key={i}>
             <td>
               <p>{query.name.replace(' Province', '').toUpperCase()}</p>
               <p>{query.sys.country}</p>
