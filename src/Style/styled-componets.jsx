@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff); 
-  /* background: linear-gradient(to right bottom,#0575e6, #00f260 ); */
+
 
 }
 `;
@@ -37,6 +37,34 @@ export const StyledContainer = styled.main`
   }
 `;
 
+export const StyledDetailContainer = styled(StyledContainer)`
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > .top-side {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+  }
+
+  & .right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  & .right-side > div,
+  span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.3rem;
+  }
+`;
+
 export const StyledHeader = styled.header`
   height: 5rem;
   display: flex;
@@ -44,6 +72,10 @@ export const StyledHeader = styled.header`
   align-items: center;
   padding: 1rem 2rem;
   background-color: #ff5f5d;
+
+  & > .logo {
+    cursor: pointer;
+  }
 
   & .geocoder-container {
     display: flex;
@@ -220,12 +252,11 @@ export const StyledTable = styled.table`
 `;
 
 export const StyledDailyContainer = styled.section`
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+
   gap: 0.2rem;
-  width: 80%;
-  margin: 0 auto;
+  padding: 1rem 2rem;
   overflow: auto;
 `;
 
@@ -239,7 +270,7 @@ export const StyledDaily = styled.div`
   gap: 0.2rem;
   justify-content: center;
   align-items: center;
-  background-color: greenyellow;
+  background-color: rgba(54, 55, 149, 0.7);
 `;
 
 export const StyledFooter = styled.footer`

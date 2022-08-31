@@ -8,8 +8,10 @@ import '@geoapify/geocoder-autocomplete/styles/round-borders.css';
 
 import useFetchData from '../hooks/useFetchData';
 import { StyledHeader } from '../Style/styled-componets';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   const [query, setQuery] = useState({ city: '', code: '' });
   useFetchData(query, 'current');
 
@@ -26,7 +28,9 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <div>Logo</div>
+      <div onClick={() => navigate('/')} className='logo'>
+        Logo
+      </div>
       <GeoapifyContext apiKey={process.env.REACT_APP_CITY_API_KEY}>
         <GeoapifyGeocoderAutocomplete
           placeholder='Enter address here'

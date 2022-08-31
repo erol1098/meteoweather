@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyledContainer,
+  StyledDetailContainer,
   StyledDailyContainer,
 } from '../Style/styled-componets';
 import { useParams } from 'react-router-dom';
@@ -17,17 +17,16 @@ import DailyCard from '../components/DailyCard';
 const DetailPage = ({ response, daily }) => {
   const { query } = useParams();
   const arr = query.split('-');
+
   useFetchData({ city: arr[0], code: arr[1] }, 'current');
   useFetchData({ city: arr[0], code: arr[1] }, 'daily');
-  // console.log(arr);
-  // console.log(response);
-  console.log(daily?.data);
+
   return (
     <>
-      <StyledContainer>
-        <section className='left-side'>
-          <div className='card-header'>
-            <div className='location'>
+      <StyledDetailContainer>
+        <section className='top-side'>
+          <section className='left-side'>
+            <div>
               <GoLocation size={30} />
               <p>
                 <span>{response?.name?.replace(' Province', '')}</span>{' '}
@@ -49,62 +48,62 @@ const DetailPage = ({ response, daily }) => {
               {Math.round(response?.main?.temp)}
               {'°C'}
             </p>
-          </div>
-        </section>
-        <section className='right-side'>
-          <p>
-            <span>
-              <FiSunrise size={40} />{' '}
-              {new Intl.DateTimeFormat('en-US', {
-                hour: 'numeric',
-                minute: 'numeric',
-              }).format(response?.sys?.sunrise * 1000 || new Date())}
-            </span>{' '}
-            <span>
-              <FiSunset size={40} />{' '}
-              {new Intl.DateTimeFormat('en-US', {
-                hour: 'numeric',
-                minute: 'numeric',
-              }).format(response?.sys?.sunset * 1000 || new Date())}
-            </span>
-          </p>
+          </section>
+          <section className='right-side'>
+            <div>
+              <span>
+                <FiSunrise size={40} />{' '}
+                {new Intl.DateTimeFormat('en-US', {
+                  hour: 'numeric',
+                  minute: 'numeric',
+                }).format(response?.sys?.sunrise * 1000 || new Date())}
+              </span>
+              <span>
+                <FiSunset size={40} />{' '}
+                {new Intl.DateTimeFormat('en-US', {
+                  hour: 'numeric',
+                  minute: 'numeric',
+                }).format(response?.sys?.sunset * 1000 || new Date())}
+              </span>
+            </div>
 
-          <p>
-            <span>
-              <FaTemperatureHigh size={40} />{' '}
-              {Math.round(response?.main?.temp_min)}
-              {'°C'}
-            </span>
-            <span>
-              <FaTemperatureLow size={40} />{' '}
-              {Math.round(response?.main?.temp_max)}
-              {'°C'}
-            </span>
-          </p>
-
-          <p>
-            <GiRoundKnob size={40} />
-            {response?.main?.pressure}
-            {' mbar'}
-          </p>
-          <p>
-            <BsDroplet size={40} />
-            {response?.main?.humidity}
-            {'%'}
-          </p>
-          <p>
-            <GiWindsock size={40} />
-            {response?.wind?.deg}
-            {'°'} / {response?.wind?.speed}
-            {' km/h'}
-          </p>
+            <div>
+              <span>
+                <FaTemperatureHigh size={40} />{' '}
+                {Math.round(response?.main?.temp_min)}
+                {'°C'}
+              </span>
+              <span>
+                <FaTemperatureLow size={40} />{' '}
+                {Math.round(response?.main?.temp_max)}
+                {'°C'}
+              </span>
+            </div>
+            <div>
+              <GiRoundKnob size={40} />
+              {response?.main?.pressure}
+              {' mbar'}
+            </div>
+            <div>
+              <BsDroplet size={40} />
+              {response?.main?.humidity}
+              {'%'}
+            </div>
+            <div>
+              <GiWindsock size={40} />
+              {response?.wind?.deg}
+              {'°'} / {response?.wind?.speed}
+              {' km/h'}
+            </div>
+          </section>
         </section>
-      </StyledContainer>
-      <StyledDailyContainer>
-        {daily?.data?.map((day, i) => (
-          <DailyCard key={i} data={day} />
-        ))}
-      </StyledDailyContainer>
+        <StyledDailyContainer>
+          {/* <h3>10 Days Forecast</h3> */}
+          {daily?.data?.map((day, i) => (
+            <DailyCard key={i} data={day} />
+          ))}
+        </StyledDailyContainer>
+      </StyledDetailContainer>
     </>
   );
 };
