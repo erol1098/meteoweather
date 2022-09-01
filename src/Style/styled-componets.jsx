@@ -24,7 +24,7 @@ export const StyledContainer = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 5rem;
 
   & > .history-items {
@@ -99,12 +99,8 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledCard = styled.section`
-  box-sizing: content-box;
-  transform-origin: top right;
   width: 30rem;
   height: 33rem;
-  /* padding: 1rem 0; */
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

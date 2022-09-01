@@ -1,17 +1,13 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LazyLoading from '../components/LazyLoading';
-// import DetailPage from '../pages/DetailPage';
-// import Home from '../pages/Home';
-// import NotFound from '../pages/NotFound';
-// import SignUp from '../pages/SignUp';
 
 const Home = lazy(() => import('../pages/Home'));
 const DetailPage = lazy(() => import('../pages/DetailPage'));
 const NotFound = lazy(() => import('../pages/NotFound'));
-
 const SignIn = lazy(() => import('../pages/SignIn'));
 const SignUp = lazy(() => import('../pages/SignUp'));
 
