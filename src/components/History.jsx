@@ -4,7 +4,19 @@ import { StyledTable } from '../Style/styled-componets';
 const History = ({ queries }) => {
   return (
     <StyledTable>
+      <thead>
+        <tr>
+          <th colSpan={3}>
+            <h3>Past Search</h3>
+          </th>
+        </tr>
+      </thead>
       <tbody>
+        {!queries.length && (
+          <tr>
+            <td>No Item Found!</td>
+          </tr>
+        )}
         {queries?.map((query, i) => (
           <tr key={i}>
             <td>

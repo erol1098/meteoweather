@@ -216,14 +216,24 @@ export const StyledCard = styled.section`
 
 export const StyledTable = styled.table`
   width: 30rem;
+  height: 33rem;
   border-collapse: separate;
   border-spacing: 0 0.3rem;
   font-size: 1.3rem;
   color: #fff;
+  background: linear-gradient(
+    to right,
+    rgba(0, 92, 151, 0.5),
+    rgba(54, 55, 149, 0.5)
+  );
+  padding: 1rem;
+  border-radius: 1rem;
+  & th {
+    background-color: #005c97;
+  }
 
   & tr {
-    height: 5rem;
-    margin-bottom: 1rem;
+    height: 2rem;
     background: linear-gradient(to right, #005c97, #363795);
   }
 

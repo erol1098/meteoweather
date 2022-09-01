@@ -4,7 +4,7 @@ import History from '../components/History';
 import withContext from '../hocs/withContext';
 import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
-import { StyledContainer } from '../Style/styled-componets';
+import { StyledContainer, StyledTable } from '../Style/styled-componets';
 
 const Home = ({ response }) => {
   const [queries, setQueries] = useState(
@@ -25,7 +25,19 @@ const Home = ({ response }) => {
       <div className='response-item'>
         {response && <Card data={response} />}
         {!response && defaultQuery && <Card data={defaultQuery} />}
-        {!response && !defaultQuery && <p>Item Goes Here!</p>}
+        {!response && !defaultQuery && (
+          <StyledTable>
+            <tbody>
+              <tr>
+                <td colSpan={3}>
+                  {' '}
+                  Please allow location for reaching weather forecast of your
+                  current location or use search for new query
+                </td>
+              </tr>
+            </tbody>
+          </StyledTable>
+        )}
       </div>
       <div className='history-items'>
         <History queries={queries} />
