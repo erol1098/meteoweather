@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 
+import Clear from '../assets/clear.jpg';
 export const GlobalStyle = createGlobalStyle`
 * {
   margin:0;
@@ -41,6 +42,7 @@ export const StyledDetailContainer = styled(StyledContainer)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url(${(props) => props.theme}) fixed no-repeat center;
 
   & > .top-side {
     width: 100%;
@@ -254,14 +256,21 @@ export const StyledTable = styled.table`
 export const StyledDailyContainer = styled.section`
   width: 100%;
   display: flex;
-
+  align-items: center;
+  justify-content: center;
   gap: 0.2rem;
   padding: 1rem 2rem;
-  overflow: auto;
+  overflow-x: auto;
+  height: 12rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+  /* background: url(${Clear}); */
 `;
 
 export const StyledDaily = styled.div`
   width: 10rem;
+  min-width: 8rem;
   height: 10rem;
   border: none;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -270,7 +279,7 @@ export const StyledDaily = styled.div`
   gap: 0.2rem;
   justify-content: center;
   align-items: center;
-  background-color: rgba(54, 55, 149, 0.7);
+  background-color: rgba(54, 55, 149, 0.9);
 `;
 
 export const StyledFooter = styled.footer`

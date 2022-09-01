@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StyledDetailContainer,
   StyledDailyContainer,
@@ -13,17 +13,27 @@ import { BsDroplet } from 'react-icons/bs';
 import useFetchData from '../hooks/useFetchData';
 import withContext from '../hocs/withContext';
 import DailyCard from '../components/DailyCard';
+import setBg from '../services/setBg';
 
-const DetailPage = ({ response, daily }) => {
+const DetailPage = ({
+  response,
+  daily,
+  detailPageTheme,
+  setDetailPageTheme,
+}) => {
   const { query } = useParams();
   const arr = query.split('-');
 
   useFetchData({ city: arr[0], code: arr[1] }, 'current');
   useFetchData({ city: arr[0], code: arr[1] }, 'daily');
 
+  useEffect(() => {
+    setBg(response?.weather[0]?.id, setDetailPageTheme);
+  }, [response, setDetailPageTheme]);
+  console.log(detailPageTheme);
   return (
     <>
-      <StyledDetailContainer>
+      <StyledDetailContainer theme={detailPageTheme}>
         <section className='top-side'>
           <section className='left-side'>
             <div>
@@ -99,6 +109,7 @@ const DetailPage = ({ response, daily }) => {
         </section>
         <StyledDailyContainer>
           {/* <h3>10 Days Forecast</h3> */}
+          {!daily?.data && <p>Weather Data Unavailable!</p>}
           {daily?.data?.map((day, i) => (
             <DailyCard key={i} data={day} />
           ))}
