@@ -4,10 +4,11 @@ import { useCallback, useContext, useEffect } from 'react';
 import AppContext from '../context/app-context';
 
 const useFetchData = ({ city, code }, flag) => {
-  const { setResponse, setDaily } = useContext(AppContext);
+  const { setResponse, setDaily, setLoading } = useContext(AppContext);
 
   const getData = useCallback(async () => {
     try {
+      setLoading(true);
       if (flag === 'current' && city && code) {
         const { data } = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city},${code}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
@@ -21,8 +22,10 @@ const useFetchData = ({ city, code }, flag) => {
       }
     } catch (error) {
       console.log('Error', error.response.data.message);
+    } finally {
+      setLoading(false);
     }
-  }, [city, code, flag, setResponse, setDaily]);
+  }, [city, code, flag, setResponse, setDaily, setLoading]);
 
   useEffect(() => {
     getData();

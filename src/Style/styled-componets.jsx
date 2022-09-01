@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff); 
+  /* background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff);  */
 
 
 }
@@ -18,7 +18,8 @@ body {
 
 export const StyledContainer = styled.main`
   width: 100%;
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 5rem);
+  background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff);
   padding: 3rem;
   display: flex;
   flex-wrap: wrap;
@@ -295,5 +296,14 @@ export const StyledDaily = styled.div`
 export const StyledFooter = styled.footer`
   width: 100%;
   height: 5rem;
-  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #ddd;
+  background-color: #aaa;
+  & > a {
+    text-decoration: none;
+    color: #ddd;
+  }
 `;

@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
-import DetailPage from '../pages/DetailPage';
-import Home from '../pages/Home';
-import NotFound from '../pages/NotFound';
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
+import LazyLoading from '../components/LazyLoading';
+// import DetailPage from '../pages/DetailPage';
+// import Home from '../pages/Home';
+// import NotFound from '../pages/NotFound';
+// import SignUp from '../pages/SignUp';
+
+const Home = lazy(() => import('../pages/Home'));
+const DetailPage = lazy(() => import('../pages/DetailPage'));
+const NotFound = lazy(() => import('../pages/NotFound'));
+
+const SignIn = lazy(() => import('../pages/SignIn'));
+const SignUp = lazy(() => import('../pages/SignUp'));
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='login' element={<SignIn />} />
-        <Route path='register' element={<SignUp />} />
-        <Route path='details/:query' element={<DetailPage />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-      {/* <Footer /> */}
+      <Suspense fallback={<LazyLoading />}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='login' element={<SignIn />} />
+          <Route path='register' element={<SignUp />} />
+          <Route path='details/:query' element={<DetailPage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </Suspense>
+      <Footer />
     </BrowserRouter>
   );
 };

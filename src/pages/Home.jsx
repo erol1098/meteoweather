@@ -6,7 +6,7 @@ import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
 import { StyledContainer, StyledTable } from '../Style/styled-componets';
 
-const Home = ({ response }) => {
+const Home = ({ response, loading }) => {
   const [queries, setQueries] = useState(
     JSON.parse(localStorage.getItem('history')) || []
   );
@@ -17,6 +17,7 @@ const Home = ({ response }) => {
   }, [response]);
 
   useEffect(() => {
+    window.scroll(0, 0);
     defaultCard(setDefaultQuery);
   }, []);
 
@@ -25,6 +26,7 @@ const Home = ({ response }) => {
       <div className='response-item'>
         {response && <Card data={response} />}
         {!response && defaultQuery && <Card data={defaultQuery} />}
+        {loading && defaultQuery && <p>sssssssssss</p>}
         {!response && !defaultQuery && (
           <StyledTable>
             <tbody>

@@ -30,7 +30,6 @@ const DetailPage = ({
   useEffect(() => {
     setBg(response?.weather[0]?.id, setDetailPageTheme);
   }, [response, setDetailPageTheme]);
-  console.log(detailPageTheme);
   return (
     <>
       <StyledDetailContainer theme={detailPageTheme}>

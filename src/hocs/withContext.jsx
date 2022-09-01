@@ -10,6 +10,8 @@ const withContext = (WrappedComponent) => {
       setDaily,
       detailPageTheme,
       setDetailPageTheme,
+      loading,
+      setLoading,
     } = useContext(AppContext);
     return (
       <WrappedComponent
@@ -19,6 +21,8 @@ const withContext = (WrappedComponent) => {
         setDaily={setDaily}
         detailPageTheme={detailPageTheme}
         setDetailPageTheme={setDetailPageTheme}
+        loading={loading}
+        setLoading={setLoading}
         {...props}
       />
     );
