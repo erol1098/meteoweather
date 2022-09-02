@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { StyledContainer, StyledForm } from '../styles/styled-componets';
 import { useAuth } from 'web-firebase';
 
+import useToastify from '../hooks/useToastify';
 import withContext from '../hocs/withContext';
 
-const SignUp = ({ auth }) => {
+const SignUp = ({ auth, userInfo }) => {
   const { createUser, error } = useAuth(auth);
   const navigate = useNavigate();
+  const { Toastify } = useToastify();
+
+  const checkError = () => {
+    Toastify('error', error?.message);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,9 +23,16 @@ const SignUp = ({ auth }) => {
     const email = data.get('email');
     const password = data.get('password1');
     createUser(displayName, email, password);
-    console.log(displayName, email, password);
   };
-  console.log(error);
+
+  useEffect(() => {
+    checkError();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
+  useEffect(() => {
+    userInfo && Toastify('success', 'Registered Successfully');
+    userInfo && navigate('/');
+  }, [userInfo, navigate, Toastify]);
   return (
     <StyledContainer>
       <StyledForm onSubmit={handleSubmit}>
