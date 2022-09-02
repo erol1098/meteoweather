@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledDaily } from '../Style/styled-componets';
+import { StyledDaily } from '../styles/styled-componets';
 
 const DailyCard = ({ data }) => {
   return (

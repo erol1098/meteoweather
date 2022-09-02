@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledError } from '../Style/styled-componets';
+import { StyledError } from '../styles/styled-componets';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {

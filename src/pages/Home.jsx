@@ -4,7 +4,7 @@ import History from '../components/History';
 import withContext from '../hocs/withContext';
 import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
-import { StyledContainer, StyledTable } from '../Style/styled-componets';
+import { StyledContainer, StyledTable } from '../styles/styled-componets';
 
 const Home = ({ response, loading }) => {
   window.scroll(0, 0);

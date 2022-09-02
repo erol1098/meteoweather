@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {
   StyledDetailContainer,
   StyledDailyContainer,
-} from '../Style/styled-componets';
+} from '../styles/styled-componets';
 import { useParams } from 'react-router-dom';
 import { GoLocation } from 'react-icons/go';
 import { FiSunrise, FiSunset } from 'react-icons/fi';

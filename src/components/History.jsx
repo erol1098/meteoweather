@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledTable } from '../Style/styled-componets';
+import { StyledTable } from '../styles/styled-componets';
 
 const History = ({ queries }) => {
   return (

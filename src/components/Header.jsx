@@ -7,7 +7,7 @@ import {
 import '@geoapify/geocoder-autocomplete/styles/round-borders.css';
 
 import useFetchData from '../hooks/useFetchData';
-import { StyledHeader } from '../Style/styled-componets';
+import { StyledHeader } from '../styles/styled-componets';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {

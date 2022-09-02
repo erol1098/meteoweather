@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledCard } from '../Style/styled-componets';
+import { StyledCard } from '../styles/styled-componets';
 import { BsDroplet } from 'react-icons/bs';
 import { GiWindsock, GiRoundKnob } from 'react-icons/gi';
 import { GoLocation } from 'react-icons/go';
