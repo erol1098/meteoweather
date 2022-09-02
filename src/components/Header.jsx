@@ -42,21 +42,27 @@ const Header = ({ auth, userInfo }) => {
         />
       </GeoapifyContext>
       <div>
-        <button type='button' onClick={() => navigate('/login')}>
-          Login
-        </button>
-        <button type='button' onClick={() => navigate('/register')}>
-          Register
-        </button>
-        <button
-          type='button'
-          onClick={() => {
-            logOut();
-            navigate('/');
-          }}
-        >
-          Logout
-        </button>
+        {!userInfo && (
+          <>
+            <button type='button' onClick={() => navigate('/login')}>
+              Login
+            </button>
+            <button type='button' onClick={() => navigate('/register')}>
+              Register
+            </button>
+          </>
+        )}
+        {userInfo && (
+          <button
+            type='button'
+            onClick={() => {
+              logOut();
+              navigate('/');
+            }}
+          >
+            Logout
+          </button>
+        )}
       </div>
     </StyledHeader>
   );
