@@ -12,6 +12,9 @@ const withContext = (WrappedComponent) => {
       setDetailPageTheme,
       loading,
       setLoading,
+      auth,
+      db,
+      userInfo,
     } = useContext(AppContext);
     return (
       <WrappedComponent
@@ -23,6 +26,9 @@ const withContext = (WrappedComponent) => {
         setDetailPageTheme={setDetailPageTheme}
         loading={loading}
         setLoading={setLoading}
+        auth={auth}
+        db={db}
+        userInfo={userInfo}
         {...props}
       />
     );

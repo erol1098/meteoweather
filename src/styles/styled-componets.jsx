@@ -343,3 +343,36 @@ export const StyledError = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const StyledForm = styled.form`
+  width: 30rem;
+  min-width: 350px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  & > h1 {
+    text-align: center;
+    width: 100%;
+  }
+  & > input {
+    width: 100%;
+    height: 2rem;
+    border-radius: 0.3rem;
+    border: none;
+  }
+
+  & > button {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 0.4rem;
+    border-radius: 0.3rem;
+    border: none;
+    cursor: pointer;
+  }
+`;

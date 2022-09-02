@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyledContainer } from '../styles/styled-componets';
+import { StyledContainer, StyledForm } from '../styles/styled-componets';
 
 const SignIn = () => {
-  return <StyledContainer>SignIn</StyledContainer>;
+  return (
+    <StyledContainer>
+      <StyledForm></StyledForm>
+    </StyledContainer>
+  );
 };
 
 export default SignIn;

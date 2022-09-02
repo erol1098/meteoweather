@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { StyledContainer, StyledTable } from '../styles/styled-componets';
+
 import Card from '../components/Card';
 import History from '../components/History';
 import withContext from '../hocs/withContext';
 import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
-import { StyledContainer, StyledTable } from '../styles/styled-componets';
 
-const Home = ({ response, loading }) => {
+const Home = ({ response, loading, auth, db, userInfo }) => {
   window.scroll(0, 0);
+  console.log('1', auth, '2', db, '3', userInfo);
+
   const [queries, setQueries] = useState(
     JSON.parse(localStorage.getItem('history')) || []
   );
+
   const [defaultQuery, setDefaultQuery] = useState();
   //? Writing Responses to Local Storage
   useEffect(() => {
