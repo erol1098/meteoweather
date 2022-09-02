@@ -369,8 +369,10 @@ export const StyledForm = styled.form`
   gap: 0.5rem;
   align-items: flex-start;
   justify-content: center;
+  border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ddd;
   & > h1 {
     text-align: center;
     width: 100%;
@@ -380,6 +382,12 @@ export const StyledForm = styled.form`
     height: 2rem;
     border-radius: 0.3rem;
     border: none;
+    text-indent: 1rem;
+    font-size: 1.1rem;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   & > button {
@@ -389,5 +397,16 @@ export const StyledForm = styled.form`
     border-radius: 0.3rem;
     border: none;
     cursor: pointer;
+  }
+
+  & > button[type='submit'] {
+    background-color: green;
+    color: white;
+  }
+
+  & > button[type='button'] {
+    background-color: white;
+    color: green;
+    border: 2px solid green;
   }
 `;

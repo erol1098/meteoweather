@@ -38,15 +38,21 @@ const SignUp = ({ auth, userInfo }) => {
       <StyledForm onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <label htmlFor='first-name'>First Name</label>
-        <input type='text' name='firstName' id='first-name' />
+        <input
+          type='text'
+          name='firstName'
+          id='first-name'
+          required
+          autoFocus
+        />
         <label htmlFor='last-name'>Last Name</label>
-        <input type='text' name='lastName' id='last-name' />
+        <input type='text' name='lastName' id='last-name' required />
         <label htmlFor='email'>Email</label>
-        <input type='email' name='email' id='email' />
+        <input type='email' name='email' id='email' required />
         <label htmlFor='password1'>Password</label>
-        <input type='password' name='password1' id='password1' />
+        <input type='password' name='password1' id='password1' required />
         <label htmlFor='password2'>Confirm Password</label>
-        <input type='password' name='password2' id='password2' />
+        <input type='password' name='password2' id='password2' required />
         <hr />
         <button type='submit'>Sign Up</button>
         <button type='button'>Sign In with Google</button>

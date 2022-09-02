@@ -24,7 +24,6 @@ const SignIn = ({ auth, userInfo }) => {
 
   useEffect(() => {
     checkError();
-    console.log('reter', error);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
@@ -38,10 +37,9 @@ const SignIn = ({ auth, userInfo }) => {
       <StyledForm onSubmit={handleSubmit}>
         <h1>Sign In</h1>
         <label htmlFor='email'>Email</label>
-        <input type='email' name='email' id='email' />
-        <label htmlFor='password1'>Password</label>
-        <input type='password' name='password1' id='password1' />
-
+        <input type='email' name='email' id='email' required autoFocus />
+        <label htmlFor='password'>Password</label>
+        <input type='password' name='password' id='password' required />
         <hr />
         <button type='submit'>Sign In</button>
         <button type='button' onClick={() => googleAuth()}>
