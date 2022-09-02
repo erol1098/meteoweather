@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -14,17 +15,49 @@ const SignUp = lazy(() => import('../pages/SignUp'));
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Header />
+      <ErrorBoundary>
+        <Header />
+      </ErrorBoundary>
       <Suspense fallback={<LazyLoading />}>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='login' element={<SignIn />} />
-          <Route path='register' element={<SignUp />} />
-          <Route path='details/:query' element={<DetailPage />} />
+          <Route
+            path='/'
+            element={
+              <ErrorBoundary>
+                <Home />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path='login'
+            element={
+              <ErrorBoundary>
+                <SignIn />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path='register'
+            element={
+              <ErrorBoundary>
+                <SignUp />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path='details/:query'
+            element={
+              <ErrorBoundary>
+                <DetailPage />
+              </ErrorBoundary>
+            }
+          />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>
-      <Footer />
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
     </BrowserRouter>
   );
 };

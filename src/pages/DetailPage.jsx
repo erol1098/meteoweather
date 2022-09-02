@@ -14,6 +14,7 @@ import useFetchData from '../hooks/useFetchData';
 import withContext from '../hocs/withContext';
 import DailyCard from '../components/DailyCard';
 import setBg from '../services/setBg';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const DetailPage = ({
   response,
@@ -106,13 +107,15 @@ const DetailPage = ({
             </div>
           </section>
         </section>
-        <StyledDailyContainer>
-          {/* <h3>10 Days Forecast</h3> */}
-          {!daily?.data && <p>Weather Data Unavailable!</p>}
-          {daily?.data?.map((day, i) => (
-            <DailyCard key={i} data={day} />
-          ))}
-        </StyledDailyContainer>
+        <ErrorBoundary>
+          <StyledDailyContainer>
+            {/* <h3>10 Days Forecast</h3> */}
+            {!daily?.data && <p>Weather Data Unavailable!</p>}
+            {daily?.data?.map((day, i) => (
+              <DailyCard key={i} data={day} />
+            ))}
+          </StyledDailyContainer>
+        </ErrorBoundary>
       </StyledDetailContainer>
     </>
   );

@@ -7,6 +7,7 @@ import setStorage from '../services/local-storage';
 import { StyledContainer, StyledTable } from '../Style/styled-componets';
 
 const Home = ({ response, loading }) => {
+  window.scroll(0, 0);
   const [queries, setQueries] = useState(
     JSON.parse(localStorage.getItem('history')) || []
   );
@@ -17,7 +18,6 @@ const Home = ({ response, loading }) => {
   }, [response]);
 
   useEffect(() => {
-    window.scroll(0, 0);
     defaultCard(setDefaultQuery);
   }, []);
 
@@ -26,13 +26,12 @@ const Home = ({ response, loading }) => {
       <div className='response-item'>
         {response && <Card data={response} />}
         {!response && defaultQuery && <Card data={defaultQuery} />}
-        {loading && defaultQuery && <p>sssssssssss</p>}
+        {/* {loading && defaultQuery && <p>sssssssssss</p>} */}
         {!response && !defaultQuery && (
           <StyledTable>
             <tbody>
               <tr>
                 <td colSpan={3}>
-                  {' '}
                   Please allow location for reaching weather forecast of your
                   current location or use search for new query
                 </td>
