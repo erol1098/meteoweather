@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from 'web-firebase';
 import withContext from '../hocs/withContext';
 import useToastify from '../hooks/useToastify';
 import { StyledContainer, StyledForm } from '../styles/styled-componets';
 
-const SignIn = ({ auth, userInfo }) => {
-  const { signIn, googleAuth, error } = useAuth(auth);
+const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
   const navigate = useNavigate();
   const { Toastify } = useToastify();
 

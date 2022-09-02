@@ -2,13 +2,11 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { StyledContainer, StyledForm } from '../styles/styled-componets';
-import { useAuth } from 'web-firebase';
 
 import useToastify from '../hooks/useToastify';
 import withContext from '../hocs/withContext';
 
-const SignUp = ({ auth, userInfo }) => {
-  const { createUser, error } = useAuth(auth);
+const SignUp = ({ auth, userInfo, createUser, error }) => {
   const navigate = useNavigate();
   const { Toastify } = useToastify();
 

@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { useAuth } from 'web-firebase';
 
 import useFirebase from '../hooks/useFirebase';
 
@@ -10,6 +11,7 @@ export const AppContextProvider = ({ children }) => {
   const [detailPageTheme, setDetailPageTheme] = useState('empty');
 
   const { auth, db, userInfo } = useFirebase();
+  const { createUser, signIn, logOut, googleAuth, error } = useAuth(auth);
 
   const values = {
     response,
@@ -23,6 +25,11 @@ export const AppContextProvider = ({ children }) => {
     auth,
     db,
     userInfo,
+    createUser,
+    signIn,
+    logOut,
+    googleAuth,
+    error,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 };

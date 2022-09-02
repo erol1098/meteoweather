@@ -15,6 +15,11 @@ const withContext = (WrappedComponent) => {
       auth,
       db,
       userInfo,
+      createUser,
+      signIn,
+      logOut,
+      googleAuth,
+      error,
     } = useContext(AppContext);
     return (
       <WrappedComponent
@@ -29,6 +34,11 @@ const withContext = (WrappedComponent) => {
         auth={auth}
         db={db}
         userInfo={userInfo}
+        logOut={logOut}
+        createUser={createUser}
+        signIn={signIn}
+        googleAuth={googleAuth}
+        error={error}
         {...props}
       />
     );

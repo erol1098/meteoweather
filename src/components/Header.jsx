@@ -10,12 +10,11 @@ import useFetchData from '../hooks/useFetchData';
 import { StyledHeader } from '../styles/styled-componets';
 import { useNavigate } from 'react-router-dom';
 import withContext from '../hocs/withContext';
-import { useAuth } from 'web-firebase';
 import useToastify from '../hooks/useToastify';
 
-const Header = ({ auth, userInfo }) => {
+const Header = ({ auth, userInfo, logOut }) => {
   const navigate = useNavigate();
-  const { logOut } = useAuth(auth);
+  // const { logOut } = useAuth(auth);
   const { Toastify } = useToastify();
 
   const [query, setQuery] = useState({ city: '', code: '' });
