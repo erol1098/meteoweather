@@ -3,12 +3,10 @@ const setStorage = (response, setQueries) => {
     const arr = JSON.parse(localStorage.getItem('history'));
 
     if (arr.every((city) => city.name !== response.name)) {
-      console.log('no');
       arr.unshift(response);
       localStorage.setItem('history', JSON.stringify(arr.slice(0, 4)));
       setQueries(arr.slice(0, 4));
     } else {
-      console.log('yes');
       const tempArr = arr.filter((city) => city.name !== response.name);
       tempArr.unshift(response);
       setQueries(tempArr.slice(0, 4));

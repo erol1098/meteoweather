@@ -51,20 +51,52 @@ export const StyledDetailContainer = styled(StyledContainer)`
     justify-content: space-between;
     align-items: center;
     padding: 0 3rem;
+
+    & > section {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
   }
 
   & .right-side {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-  }
+    gap: 1.4rem;
 
-  & .right-side > div,
-  span {
+    & > div,
+    span {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 600;
+    }
+  }
+  & .left-side {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 0.3rem;
+    gap: 1rem;
+    font-size: 1.5rem;
+
+    & > div,
+    span {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 600;
+    }
+
+    & .current-temp {
+      font-size: 3rem;
+      font-weight: 800;
+    }
   }
 `;
 
@@ -305,11 +337,9 @@ export const StyledFooter = styled.footer`
 `;
 
 export const StyledError = styled.div`
-
-  width:100%;
-  height:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

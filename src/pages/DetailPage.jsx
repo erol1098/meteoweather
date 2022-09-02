@@ -38,10 +38,8 @@ const DetailPage = ({
           <section className='left-side'>
             <div>
               <GoLocation size={30} />
-              <p>
-                <span>{response?.name?.replace(' Province', '')}</span>{' '}
-                <span>{response?.sys?.country}</span>
-              </p>
+              <span>{response?.name?.replace(' Province', '')}</span>{' '}
+              <span>{response?.sys?.country}</span>
             </div>
             <span>
               {new Intl.DateTimeFormat('en-US', {
