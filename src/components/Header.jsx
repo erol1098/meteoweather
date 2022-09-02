@@ -9,9 +9,12 @@ import '@geoapify/geocoder-autocomplete/styles/round-borders.css';
 import useFetchData from '../hooks/useFetchData';
 import { StyledHeader } from '../styles/styled-componets';
 import { useNavigate } from 'react-router-dom';
+import withContext from '../hocs/withContext';
+import { useAuth } from 'web-firebase';
 
-const Header = () => {
+const Header = ({ auth, userInfo }) => {
   const navigate = useNavigate();
+  const { logOut } = useAuth(auth);
   const [query, setQuery] = useState({ city: '', code: '' });
   useFetchData(query, 'current');
 
@@ -38,9 +41,25 @@ const Header = () => {
           postprocessHook={postprocessHook}
         />
       </GeoapifyContext>
-      <div>Avatar</div>
+      <div>
+        <button type='button' onClick={() => navigate('/login')}>
+          Login
+        </button>
+        <button type='button' onClick={() => navigate('/register')}>
+          Register
+        </button>
+        <button
+          type='button'
+          onClick={() => {
+            logOut();
+            navigate('/');
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </StyledHeader>
   );
 };
 
-export default Header;
+export default withContext(Header);
