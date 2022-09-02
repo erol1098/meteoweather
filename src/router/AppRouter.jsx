@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -58,17 +57,6 @@ const AppRouter = () => {
       <ErrorBoundary>
         <Footer />
       </ErrorBoundary>
-      <ToastContainer
-        position='top-right'
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </BrowserRouter>
   );
 };

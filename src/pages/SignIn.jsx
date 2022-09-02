@@ -11,17 +11,20 @@ const SignIn = ({ auth, userInfo }) => {
   const { Toastify } = useToastify();
 
   const checkError = () => {
-    Toastify('error', error?.message);
+    error && Toastify('error', error?.message);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
     const email = data.get('email');
     const password = data.get('password');
     signIn(email, password);
   };
+
   useEffect(() => {
     checkError();
+    console.log('reter', error);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
@@ -38,8 +41,7 @@ const SignIn = ({ auth, userInfo }) => {
         <input type='email' name='email' id='email' />
         <label htmlFor='password1'>Password</label>
         <input type='password' name='password1' id='password1' />
-        <label htmlFor='password2'>Confirm Password</label>
-        <input type='password' name='password2' id='password2' />
+
         <hr />
         <button type='submit'>Sign In</button>
         <button type='button' onClick={() => googleAuth()}>

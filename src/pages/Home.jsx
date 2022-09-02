@@ -7,10 +7,8 @@ import withContext from '../hocs/withContext';
 import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
 
-const Home = ({ response, loading, auth, db, userInfo }) => {
+const Home = ({ response, loading }) => {
   window.scroll(0, 0);
-  console.log('1', auth, '2', db, '3', userInfo);
-
   const [queries, setQueries] = useState(
     JSON.parse(localStorage.getItem('history')) || []
   );

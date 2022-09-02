@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-// import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const useToastify = () => {
   const Toastify = (action, msg) => {

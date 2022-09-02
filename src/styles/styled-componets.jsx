@@ -108,6 +108,21 @@ export const StyledHeader = styled.header`
   padding: 1rem 2rem;
   background-color: #ff5f5d;
 
+  & button {
+    width: 6rem;
+    padding: 0.4rem 0;
+    border-radius: 0.3rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
   & > .logo {
     cursor: pointer;
   }
