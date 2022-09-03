@@ -10,11 +10,15 @@ const useFetchData = ({ city, code }, flag) => {
   const getData = useCallback(async () => {
     try {
       setLoading(true);
+
+      //? For Current Weather Data
       if (flag === 'current' && city && code) {
         const { data } = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city},${code}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         );
         setResponse(data);
+
+        //? For 10-Day Weather Data
       } else if (flag === 'daily' && city && code) {
         const { data } = await axios.get(
           `https://api.weatherbit.io/v2.0/forecast/daily?city=${city},${code}&days=10&key=${process.env.REACT_APP_DAILY_API_KEY}`

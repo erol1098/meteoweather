@@ -23,6 +23,7 @@ const Header = ({ userInfo, logOut }) => {
       city: value?.properties?.city,
       code: value?.properties?.country_code,
     });
+    navigate('/');
   };
 
   const postprocessHook = (feature) => {
@@ -32,7 +33,7 @@ const Header = ({ userInfo, logOut }) => {
   return (
     <StyledHeader>
       <div onClick={() => navigate('/')} className='logo'>
-        Logo
+        <h2>Meteo</h2>
       </div>
       <GeoapifyContext apiKey={process.env.REACT_APP_CITY_API_KEY}>
         <GeoapifyGeocoderAutocomplete
@@ -41,6 +42,7 @@ const Header = ({ userInfo, logOut }) => {
           postprocessHook={postprocessHook}
         />
       </GeoapifyContext>
+
       <div>
         {!userInfo && (
           <>

@@ -123,6 +123,7 @@ export const StyledHeader = styled.header`
     align-items: center;
     gap: 1rem;
   }
+
   & > .logo {
     cursor: pointer;
   }
@@ -139,8 +140,12 @@ export const StyledHeader = styled.header`
 
     & input {
       border: none;
-      text-indent: 2rem;
       font-size: 1.3rem;
+    }
+
+    &::before {
+      content: '🔍';
+      font-size: 1.5rem;
     }
   }
 `;
