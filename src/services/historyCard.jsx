@@ -9,6 +9,8 @@ const getData = async (searchParams, setResponse, setLoading) => {
     setResponse(data);
   } catch (error) {
     console.log('error', error.response?.data.message);
+  } finally {
+    setLoading(false);
   }
 };
 

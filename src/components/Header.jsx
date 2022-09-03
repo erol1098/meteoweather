@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { StyledHeader } from '../styles/styled-componets';
 
 import {
   GeoapifyGeocoderAutocomplete,
@@ -7,8 +9,6 @@ import {
 import '@geoapify/geocoder-autocomplete/styles/round-borders.css';
 
 import useFetchData from '../hooks/useFetchData';
-import { StyledHeader } from '../styles/styled-componets';
-import { useNavigate } from 'react-router-dom';
 import withContext from '../hocs/withContext';
 import toastify from '../services/toastify';
 

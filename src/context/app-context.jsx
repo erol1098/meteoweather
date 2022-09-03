@@ -3,6 +3,7 @@ import { createContext, useState } from 'react';
 import useFirebase from '../hooks/useFirebase';
 
 const AppContext = createContext();
+
 export const AppContextProvider = ({ children }) => {
   const [response, setResponse] = useState();
   const [daily, setDaily] = useState();
@@ -11,6 +12,7 @@ export const AppContextProvider = ({ children }) => {
 
   const { createUser, signIn, logOut, googleAuth, errorAuth, userInfo } =
     useFirebase();
+
   const values = {
     response,
     setResponse,
@@ -27,6 +29,7 @@ export const AppContextProvider = ({ children }) => {
     googleAuth,
     error: errorAuth,
   };
+
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 };
 export default AppContext;

@@ -1,12 +1,23 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { StyledCard } from '../styles/styled-componets';
+
 import { BsDroplet } from 'react-icons/bs';
 import { GiWindsock, GiRoundKnob } from 'react-icons/gi';
+import { SpinnerCircularFixed } from 'spinners-react';
 import { GoLocation } from 'react-icons/go';
-import { useNavigate } from 'react-router-dom';
-const Card = ({ data }) => {
+
+import withContext from '../hocs/withContext';
+
+const Card = ({ data, loading }) => {
   const navigate = useNavigate();
+  console.log(loading);
+  if (loading)
+    return (
+      <StyledCard>
+        <SpinnerCircularFixed size={100} />
+      </StyledCard>
+    );
   return (
     <StyledCard
       onClick={() =>
@@ -48,7 +59,7 @@ const Card = ({ data }) => {
         </div>
         <div className='img-wrapper'>
           <img
-            src={`http://openweathermap.org/img/wn/${data?.weather[0]?.icon}@4x.png`}
+            src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@4x.png`}
             alt='icon'
           />
         </div>
@@ -59,7 +70,6 @@ const Card = ({ data }) => {
 
           <span>
             <GiWindsock size={30} />
-            {/* {data?.wind?.deg} */}
             {Math.round(data?.wind?.speed)}km/h
           </span>
           <span>
@@ -85,4 +95,4 @@ const Card = ({ data }) => {
   );
 };
 
-export default Card;
+export default withContext(Card);

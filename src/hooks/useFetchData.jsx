@@ -10,7 +10,6 @@ const useFetchData = ({ city, code }, flag) => {
   const getData = useCallback(async () => {
     try {
       setLoading(true);
-
       //? For Current Weather Data
       if (flag === 'current' && city && code) {
         const { data } = await axios.get(

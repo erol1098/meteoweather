@@ -29,8 +29,7 @@ const Home = ({ response, loading }) => {
       <div className='response-item'>
         {response && <Card data={response} />}
         {!response && defaultQuery && <Card data={defaultQuery} />}
-        {/* {loading && defaultQuery && <p>sssssssssss</p>} */}
-        {!response && !defaultQuery && (
+        {!loading && !response && !defaultQuery && (
           <StyledTable>
             <tbody>
               <tr>

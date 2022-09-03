@@ -155,7 +155,7 @@ export const StyledCard = styled.section`
   height: 33rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -358,7 +358,7 @@ export const StyledFooter = styled.footer`
 
 export const StyledError = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 10rem);
   display: flex;
   justify-content: center;
   align-items: center;
