@@ -23,7 +23,6 @@ const useFetchData = ({ city, code }, flag) => {
         setDaily(data);
       }
     } catch (error) {
-      // console.log('Error', error.response.data.message);
       Toastify('error', error.response.data.message);
     } finally {
       setLoading(false);

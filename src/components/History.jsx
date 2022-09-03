@@ -1,7 +1,14 @@
 import React from 'react';
+import withContext from '../hocs/withContext';
+import historyCard from '../services/historyCard';
 import { StyledTable } from '../styles/styled-componets';
 
-const History = ({ queries }) => {
+const History = ({ queries, setResponse, setLoading }) => {
+  const handleClick = (searchParams) => {
+    console.log(searchParams);
+    historyCard(searchParams, setResponse, setLoading);
+  };
+
   return (
     <StyledTable>
       <thead>
@@ -18,21 +25,23 @@ const History = ({ queries }) => {
           </tr>
         )}
         {queries?.map((query, i) => (
-          <tr key={i}>
+          <tr key={i} onClick={() => handleClick(query?.searchParams)}>
             <td>
-              <p>{query?.name?.replace(' Province', '').toUpperCase()}</p>
-              <p>{query?.sys?.country}</p>
+              <p>
+                {query?.response?.name?.replace(' Province', '').toUpperCase()}
+              </p>
+              <p>{query?.response?.sys?.country}</p>
             </td>
             <td>
               <div className='img-wrapper'>
                 <img
-                  src={`http://openweathermap.org/img/wn/${query?.weather[0]?.icon}@2x.png`}
+                  src={`http://openweathermap.org/img/wn/${query?.response?.weather[0]?.icon}@2x.png`}
                   alt='icon'
                 />
               </div>
             </td>
             <td>
-              {Math.round(query?.main?.temp)}
+              {Math.round(query?.response?.main?.temp)}
               {'°C'}
             </td>
           </tr>
@@ -42,4 +51,4 @@ const History = ({ queries }) => {
   );
 };
 
-export default History;
+export default withContext(History);

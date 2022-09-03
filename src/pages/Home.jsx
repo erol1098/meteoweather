@@ -12,13 +12,14 @@ const Home = ({ response, loading }) => {
   const [queries, setQueries] = useState(
     JSON.parse(localStorage.getItem('history')) || []
   );
-
   const [defaultQuery, setDefaultQuery] = useState();
+
   //? Writing Responses to Local Storage
   useEffect(() => {
     setStorage(response, setQueries);
   }, [response]);
 
+  //? First Card Render If Location Services is Accepted
   useEffect(() => {
     defaultCard(setDefaultQuery);
   }, []);

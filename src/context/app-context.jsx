@@ -9,7 +9,7 @@ export const AppContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [detailPageTheme, setDetailPageTheme] = useState('empty');
 
-  const { createUser, signIn, logOut, googleAuth, error, userInfo } =
+  const { createUser, signIn, logOut, googleAuth, errorAuth, userInfo } =
     useFirebase();
   const values = {
     response,
@@ -25,7 +25,7 @@ export const AppContextProvider = ({ children }) => {
     signIn,
     logOut,
     googleAuth,
-    error,
+    error: errorAuth,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 };
