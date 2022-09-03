@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAuth, initialize } from 'web-firebase';
+import { useAuth, useFirestore, initialize } from 'web-firebase';
 
 const useFirebase = () => {
   const [auth, setAuth] = useState(null);
@@ -21,6 +21,49 @@ const useFirebase = () => {
     setDb(dbRes);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
-  return { auth, db, userInfo };
+
+  //? For Authentication Process
+  const {
+    createUser,
+    signIn,
+    googleAuth,
+    updateUserProfile,
+    updateUserEmail,
+    changePassword,
+    verifyEmail,
+    resetPassword,
+    logOut,
+    error: errorAuth,
+  } = useAuth(auth);
+
+  //? For Firebase Database Process
+  const {
+    addNewEntry,
+    getEntries,
+    updateEntries,
+    deleteEntry,
+    error: errorDb,
+  } = useFirestore(db);
+
+  return {
+    //? Authentication
+    createUser,
+    signIn,
+    googleAuth,
+    updateUserProfile,
+    updateUserEmail,
+    changePassword,
+    verifyEmail,
+    resetPassword,
+    logOut,
+    errorAuth,
+    userInfo,
+    //? Firebase
+    addNewEntry,
+    getEntries,
+    updateEntries,
+    deleteEntry,
+    errorDb,
+  };
 };
 export default useFirebase;

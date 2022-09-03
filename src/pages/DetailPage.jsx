@@ -78,12 +78,12 @@ const DetailPage = ({
             <div>
               <span>
                 <FaTemperatureHigh size={40} />{' '}
-                {Math.round(response?.main?.temp_min)}
+                {Math.round(response?.main?.temp_max)}
                 {'°C'}
               </span>
               <span>
                 <FaTemperatureLow size={40} />{' '}
-                {Math.round(response?.main?.temp_max)}
+                {Math.round(response?.main?.temp_min)}
                 {'°C'}
               </span>
             </div>
