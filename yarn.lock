@@ -9090,11 +9090,6 @@ web-firebase@^1.2.1:
   resolved "https://registry.yarnpkg.com/web-firebase/-/web-firebase-1.2.1.tgz#14d998c2a3226728863e172f891884beb90bc43e"
   integrity sha512-7m3T7LH0F/R7PjdI/GTKkqjKAR8/2LPj9+KUTlC2FI7h+HGWr2AfpS087QPmWOgefy1VXYLMRDuiKlhcaXjarw==
 
-web-vitals@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-2.1.4.tgz#76563175a475a5e835264d373704f9dde718290c"
-  integrity sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==
-
 webidl-conversions@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"

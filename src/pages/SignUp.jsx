@@ -3,15 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { StyledContainer, StyledForm } from '../styles/styled-componets';
 
-import useToastify from '../hooks/useToastify';
+import toastify from '../services/toastify';
 import withContext from '../hocs/withContext';
 
 const SignUp = ({ auth, userInfo, createUser, error }) => {
   const navigate = useNavigate();
-  const { Toastify } = useToastify();
 
   const checkError = () => {
-    Toastify('error', error?.message);
+    toastify('error', error?.message);
   };
 
   const handleSubmit = (e) => {
@@ -28,9 +27,9 @@ const SignUp = ({ auth, userInfo, createUser, error }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
   useEffect(() => {
-    userInfo && Toastify('success', 'Registered Successfully');
+    userInfo && toastify('success', 'Registered Successfully');
     userInfo && navigate('/');
-  }, [userInfo, navigate, Toastify]);
+  }, [userInfo, navigate]);
   return (
     <StyledContainer>
       <StyledForm onSubmit={handleSubmit}>

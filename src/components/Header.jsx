@@ -10,12 +10,10 @@ import useFetchData from '../hooks/useFetchData';
 import { StyledHeader } from '../styles/styled-componets';
 import { useNavigate } from 'react-router-dom';
 import withContext from '../hocs/withContext';
-import useToastify from '../hooks/useToastify';
+import toastify from '../services/toastify';
 
-const Header = ({ auth, userInfo, logOut }) => {
+const Header = ({ userInfo, logOut }) => {
   const navigate = useNavigate();
-  // const { logOut } = useAuth(auth);
-  const { Toastify } = useToastify();
 
   const [query, setQuery] = useState({ city: '', code: '' });
   useFetchData(query, 'current');
@@ -59,7 +57,7 @@ const Header = ({ auth, userInfo, logOut }) => {
             type='button'
             onClick={() => {
               logOut();
-              userInfo && Toastify('info', 'Logged Out!');
+              toastify('info', 'Logged Out!');
               navigate('/');
             }}
           >

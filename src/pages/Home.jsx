@@ -19,7 +19,7 @@ const Home = ({ response, loading }) => {
     setStorage(response, setQueries);
   }, [response]);
 
-  //? First Card Render If Location Services is Accepted
+  //? First Card Render If Location Services is On
   useEffect(() => {
     defaultCard(setDefaultQuery);
   }, []);

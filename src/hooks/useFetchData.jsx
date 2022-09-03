@@ -2,11 +2,10 @@ import axios from 'axios';
 import { useCallback, useContext, useEffect } from 'react';
 
 import AppContext from '../context/app-context';
-import useToastify from './useToastify';
+import toastify from '../services/toastify';
 
 const useFetchData = ({ city, code }, flag) => {
   const { setResponse, setDaily, setLoading } = useContext(AppContext);
-  const { Toastify } = useToastify();
 
   const getData = useCallback(async () => {
     try {
@@ -23,7 +22,7 @@ const useFetchData = ({ city, code }, flag) => {
         setDaily(data);
       }
     } catch (error) {
-      Toastify('error', error.response.data.message);
+      toastify('error', error.response.data.message);
     } finally {
       setLoading(false);
     }

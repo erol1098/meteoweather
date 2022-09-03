@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import withContext from '../hocs/withContext';
-import useToastify from '../hooks/useToastify';
+import toastify from '../services/toastify';
 import { StyledContainer, StyledForm } from '../styles/styled-componets';
-
 const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
   const navigate = useNavigate();
-  const { Toastify } = useToastify();
 
   const checkError = () => {
-    error && Toastify('error', error?.message);
+    error && toastify('error', error?.message);
   };
 
   const handleSubmit = (e) => {
@@ -26,9 +24,9 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
   }, [error]);
 
   useEffect(() => {
-    userInfo && Toastify('success', 'Logged In Successfully');
+    userInfo && toastify('success', 'Logged In Successfully');
     userInfo && navigate('/');
-  }, [userInfo, navigate, Toastify]);
+  }, [userInfo, navigate]);
 
   return (
     <StyledContainer>
