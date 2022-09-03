@@ -5,7 +5,6 @@ import { StyledTable } from '../styles/styled-componets';
 
 const History = ({ queries, setResponse, setLoading }) => {
   const handleClick = (searchParams) => {
-    console.log(searchParams);
     historyCard(searchParams, setResponse, setLoading);
   };
 
