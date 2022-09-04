@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ErrorBoundary from '../components/ErrorBoundary';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LazyLoading from '../components/LazyLoading';
 
@@ -54,9 +53,6 @@ const AppRouter = () => {
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>
-      <ErrorBoundary>
-        <Footer />
-      </ErrorBoundary>
     </BrowserRouter>
   );
 };

@@ -14,7 +14,7 @@ body {
 
 export const StyledContainer = styled.main`
   width: 100%;
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100vh - 6rem);
   background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff);
   background: url(${(props) => props.theme}) fixed no-repeat center;
   padding: 3rem;
@@ -36,15 +36,21 @@ export const StyledContainer = styled.main`
   }
 `;
 
-export const StyledDetailContainer = styled(StyledContainer)`
+export const StyledDetailContainer = styled.main`
+  min-height: calc(100vh - 6rem);
+  width: 100%;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: space-between;
+  gap: 1rem;
   background: url(${(props) => props.theme}) fixed no-repeat center;
+  padding: 3rem 0;
 
   & > .top-side {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 0 3rem;
@@ -52,17 +58,20 @@ export const StyledDetailContainer = styled(StyledContainer)`
     & > section {
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
         rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-      background-color: rgba(0, 0, 0, 0.5);
       color: #fff;
       padding: 1rem;
       border-radius: 1rem;
+      height: 18rem;
+      width: 20rem;
     }
   }
 
-  & .right-side {
+  & .right-side,
+  .middle-side {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
+    background-color: rgba(0, 0, 0, 0.5);
 
     & > div,
     span {
@@ -80,6 +89,7 @@ export const StyledDetailContainer = styled(StyledContainer)`
     align-items: center;
     gap: 1rem;
     font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
 
     & > div,
     span {
@@ -90,6 +100,10 @@ export const StyledDetailContainer = styled(StyledContainer)`
       font-weight: 600;
     }
 
+    & .current {
+      font-size: 2rem;
+      font-weight: 700;
+    }
     & .current-temp {
       font-size: 3rem;
       font-weight: 800;
@@ -98,8 +112,6 @@ export const StyledDetailContainer = styled(StyledContainer)`
 `;
 
 export const StyledHeader = styled.header`
-  position: sticky;
-  top: 0;
   height: 6rem;
   display: flex;
   justify-content: space-between;
@@ -250,7 +262,7 @@ export const StyledCard = styled.section`
     justify-content: space-between;
     align-items: center;
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 0 0 1rem 1rem;
     background: linear-gradient(to bottom, #aaa, rgba(51, 51, 51, 0.8));
   }
@@ -306,7 +318,7 @@ export const StyledDailyContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.5rem;
   padding: 1rem 2rem;
   overflow-x: auto;
   height: 12rem;
@@ -315,17 +327,19 @@ export const StyledDailyContainer = styled.section`
 `;
 
 export const StyledDaily = styled.div`
-  width: 10rem;
+  width: 9rem;
   min-width: 8rem;
   height: 10rem;
   border: none;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   justify-content: center;
   align-items: center;
-  background-color: rgba(54, 55, 149, 0.9);
+  background-color: #fff;
+  font-weight: 600;
 `;
 
 export const StyledFooter = styled.footer`

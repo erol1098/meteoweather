@@ -35,6 +35,45 @@ const DetailPage = ({
     <>
       <StyledDetailContainer theme={detailPageTheme}>
         <section className='top-side'>
+          <section className='middle-side'>
+            <div>
+              <span>
+                <FiSunrise size={40} />
+                {' Sun Rise : '}
+                {new Intl.DateTimeFormat('en-US', {
+                  hour: 'numeric',
+                  minute: 'numeric',
+                }).format(response?.sys?.sunrise * 1000 || new Date())}
+              </span>
+            </div>
+            <div>
+              <span>
+                <FiSunset size={40} />
+                {' Sun Set : '}
+                {new Intl.DateTimeFormat('en-US', {
+                  hour: 'numeric',
+                  minute: 'numeric',
+                }).format(response?.sys?.sunset * 1000 || new Date())}
+              </span>
+            </div>
+
+            <div>
+              <span>
+                <FaTemperatureHigh size={40} />
+                {' Max Temp : '}
+                {Math.round(response?.main?.temp_max)}
+                {'°C'}
+              </span>
+            </div>
+            <div>
+              <span>
+                <FaTemperatureLow size={40} />
+                {' Min Temp : '}
+                {Math.round(response?.main?.temp_min)}
+                {'°C'}
+              </span>
+            </div>
+          </section>
           <section className='left-side'>
             <div>
               <GoLocation size={30} />
@@ -56,49 +95,25 @@ const DetailPage = ({
               {Math.round(response?.main?.temp)}
               {'°C'}
             </p>
+            <p className='current'>{response?.weather[0]?.description}</p>
           </section>
+
           <section className='right-side'>
             <div>
-              <span>
-                <FiSunrise size={40} />{' '}
-                {new Intl.DateTimeFormat('en-US', {
-                  hour: 'numeric',
-                  minute: 'numeric',
-                }).format(response?.sys?.sunrise * 1000 || new Date())}
-              </span>
-              <span>
-                <FiSunset size={40} />{' '}
-                {new Intl.DateTimeFormat('en-US', {
-                  hour: 'numeric',
-                  minute: 'numeric',
-                }).format(response?.sys?.sunset * 1000 || new Date())}
-              </span>
-            </div>
-
-            <div>
-              <span>
-                <FaTemperatureHigh size={40} />{' '}
-                {Math.round(response?.main?.temp_max)}
-                {'°C'}
-              </span>
-              <span>
-                <FaTemperatureLow size={40} />{' '}
-                {Math.round(response?.main?.temp_min)}
-                {'°C'}
-              </span>
-            </div>
-            <div>
               <GiRoundKnob size={40} />
+              {' Air Pressure : '}
               {response?.main?.pressure}
               {' mbar'}
             </div>
             <div>
               <BsDroplet size={40} />
+              {' Humidity : '}
               {response?.main?.humidity}
               {'%'}
             </div>
             <div>
               <GiWindsock size={40} />
+              {' Wind : '}
               {response?.wind?.deg}
               {'°'} / {response?.wind?.speed}
               {' km/h'}
