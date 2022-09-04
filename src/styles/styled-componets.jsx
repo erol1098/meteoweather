@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   font-family: 'Poppins', sans-serif;
+  user-select:none;
 }
 `;
 
@@ -81,6 +82,12 @@ export const StyledDetailContainer = styled.main`
       border-radius: 1rem;
       height: 18rem;
       width: 20rem;
+      transition: transform 1s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -358,6 +365,7 @@ export const StyledDaily = styled.div`
   align-items: center;
   background-color: #fff;
   font-weight: 600;
+  font-size: 1.2rem;
 `;
 
 export const StyledFooter = styled.footer`

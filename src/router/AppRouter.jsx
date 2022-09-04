@@ -1,8 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+
 import ErrorBoundary from '../components/ErrorBoundary';
 import Header from '../components/Header';
 import LazyLoading from '../components/LazyLoading';
+import withContext from '../hocs/withContext';
 
 const Home = lazy(() => import('../pages/Home'));
 const DetailPage = lazy(() => import('../pages/DetailPage'));
@@ -10,7 +12,7 @@ const NotFound = lazy(() => import('../pages/NotFound'));
 const SignIn = lazy(() => import('../pages/SignIn'));
 const SignUp = lazy(() => import('../pages/SignUp'));
 
-const AppRouter = () => {
+const AppRouter = ({ userInfo }) => {
   return (
     <BrowserRouter>
       <ErrorBoundary>
@@ -29,25 +31,37 @@ const AppRouter = () => {
           <Route
             path='login'
             element={
-              <ErrorBoundary>
-                <SignIn />
-              </ErrorBoundary>
+              !userInfo ? (
+                <ErrorBoundary>
+                  <SignIn />
+                </ErrorBoundary>
+              ) : (
+                <Navigate to={'/'} />
+              )
             }
           />
           <Route
             path='register'
             element={
-              <ErrorBoundary>
-                <SignUp />
-              </ErrorBoundary>
+              !userInfo ? (
+                <ErrorBoundary>
+                  <SignUp />
+                </ErrorBoundary>
+              ) : (
+                <Navigate to={'/'} />
+              )
             }
           />
           <Route
             path='details/:query'
             element={
-              <ErrorBoundary>
-                <DetailPage />
-              </ErrorBoundary>
+              !userInfo ? (
+                <Navigate to='/login' />
+              ) : (
+                <ErrorBoundary>
+                  <DetailPage />
+                </ErrorBoundary>
+              )
             }
           />
           <Route path='*' element={<NotFound />} />
@@ -57,4 +71,4 @@ const AppRouter = () => {
   );
 };
 
-export default AppRouter;
+export default withContext(AppRouter);

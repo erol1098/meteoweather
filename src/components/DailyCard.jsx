@@ -14,8 +14,17 @@ const DailyCard = ({ data }) => {
         alt='icon'
         width={60}
       ></img>
-      <p>{data?.max_temp}</p>
-      <p>{data?.min_temp}</p>
+      <div>
+        <span>
+          {Math.round(data?.max_temp)}
+          {'°'}
+        </span>
+        {' / '}
+        <span>
+          {Math.round(data?.min_temp)}
+          {'°'}
+        </span>
+      </div>
     </StyledDaily>
   );
 };
