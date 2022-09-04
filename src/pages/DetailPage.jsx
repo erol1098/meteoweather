@@ -122,7 +122,6 @@ const DetailPage = ({
         </section>
         <ErrorBoundary>
           <StyledDailyContainer>
-            {/* <h3>10 Days Forecast</h3> */}
             {!daily?.data && <p>Weather Data Unavailable!</p>}
             {daily?.data?.map((day, i) => (
               <DailyCard key={i} data={day} />

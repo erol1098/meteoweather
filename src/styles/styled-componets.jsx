@@ -16,7 +16,6 @@ body {
 export const StyledContainer = styled.main`
   width: 100%;
   min-height: calc(100vh - 6rem);
-  background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff);
   background: url(${(props) => props.theme}) fixed no-repeat center;
   padding: 3rem;
   display: flex;
@@ -38,6 +37,21 @@ export const StyledContainer = styled.main`
 `;
 export const StyledMainContainer = styled(StyledContainer)`
   background: url(${Bg}) fixed no-repeat center;
+
+  & > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    & > div {
+      display: flex;
+      gap: 2rem;
+    }
+  }
 `;
 
 export const StyledDetailContainer = styled.main`
@@ -418,5 +432,22 @@ export const StyledForm = styled.form`
     background-color: white;
     color: green;
     border: 2px solid green;
+  }
+`;
+
+export const Button = styled.button`
+  width: 6rem;
+  padding: 0.4rem 0;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+
+  &.home {
+    background-color: green;
+    color: white;
+  }
+  &.go-back {
+    background-color: yellow;
   }
 `;

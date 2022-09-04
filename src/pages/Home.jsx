@@ -29,6 +29,11 @@ const Home = ({ response, loading, detailPageTheme, setDetailPageTheme }) => {
     setBg(response?.weather[0]?.id, setDetailPageTheme);
   }, [response, setDetailPageTheme]);
 
+  useEffect(() => {
+    !response && setBg(defaultQuery?.weather[0]?.id, setDetailPageTheme);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultQuery]);
+
   return (
     <StyledContainer theme={detailPageTheme}>
       <div className='response-item'>

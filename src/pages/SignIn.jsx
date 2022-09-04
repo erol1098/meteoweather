@@ -36,7 +36,6 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
         <input type='email' name='email' id='email' required autoFocus />
         <label htmlFor='password'>Password</label>
         <input type='password' name='password' id='password' required />
-        <hr />
         <button type='submit'>Sign In</button>
         <button type='button' onClick={() => googleAuth()}>
           Sign In with Google
