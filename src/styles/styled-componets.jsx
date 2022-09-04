@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
+import Bg from '../assets/bg.jpg';
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -34,6 +35,9 @@ export const StyledContainer = styled.main`
     justify-content: center;
     align-items: flex-start;
   }
+`;
+export const StyledMainContainer = styled(StyledContainer)`
+  background: url(${Bg}) fixed no-repeat center;
 `;
 
 export const StyledDetailContainer = styled.main`
@@ -377,7 +381,7 @@ export const StyledForm = styled.form`
   justify-content: center;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #ddd;
   & > h1 {
     text-align: center;

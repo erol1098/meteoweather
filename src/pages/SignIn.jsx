@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import withContext from '../hocs/withContext';
 import toastify from '../services/toastify';
-import { StyledContainer, StyledForm } from '../styles/styled-componets';
+import { StyledMainContainer, StyledForm } from '../styles/styled-componets';
 const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
   }, [userInfo, navigate]);
 
   return (
-    <StyledContainer>
+    <StyledMainContainer>
       <StyledForm onSubmit={handleSubmit}>
         <h1>Sign In</h1>
         <label htmlFor='email'>Email</label>
@@ -42,7 +42,7 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
           Sign In with Google
         </button>
       </StyledForm>
-    </StyledContainer>
+    </StyledMainContainer>
   );
 };
 

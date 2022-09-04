@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { StyledContainer, StyledForm } from '../styles/styled-componets';
+import { StyledForm, StyledMainContainer } from '../styles/styled-componets';
 
 import toastify from '../services/toastify';
 import withContext from '../hocs/withContext';
@@ -31,7 +31,7 @@ const SignUp = ({ auth, userInfo, createUser, error }) => {
     userInfo && navigate('/');
   }, [userInfo, navigate]);
   return (
-    <StyledContainer>
+    <StyledMainContainer>
       <StyledForm onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <label htmlFor='first-name'>First Name</label>
@@ -50,11 +50,10 @@ const SignUp = ({ auth, userInfo, createUser, error }) => {
         <input type='password' name='password1' id='password1' required />
         <label htmlFor='password2'>Confirm Password</label>
         <input type='password' name='password2' id='password2' required />
-        <hr />
         <button type='submit'>Sign Up</button>
         <button type='button'>Sign In with Google</button>
       </StyledForm>
-    </StyledContainer>
+    </StyledMainContainer>
   );
 };
 

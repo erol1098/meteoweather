@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyledContainer } from '../styles/styled-componets';
+import { StyledMainContainer } from '../styles/styled-componets';
 
 const NotFound = () => {
-  return <StyledContainer>NotFound</StyledContainer>;
+  return <StyledMainContainer>NotFound</StyledMainContainer>;
 };
 
 export default NotFound;
