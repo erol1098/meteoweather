@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 
-import Clear from '../assets/clear.jpg';
 export const GlobalStyle = createGlobalStyle`
 * {
   margin:0;
@@ -10,9 +9,6 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   font-family: 'Poppins', sans-serif;
-  /* background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff);  */
-
-
 }
 `;
 
@@ -20,6 +16,7 @@ export const StyledContainer = styled.main`
   width: 100%;
   min-height: calc(100vh - 5rem);
   background: linear-gradient(to right bottom, #2980b9, #6dd5fa, #ffffff);
+  background: url(${(props) => props.theme}) fixed no-repeat center;
   padding: 3rem;
   display: flex;
   flex-wrap: wrap;
@@ -101,12 +98,14 @@ export const StyledDetailContainer = styled(StyledContainer)`
 `;
 
 export const StyledHeader = styled.header`
-  height: 5rem;
+  position: sticky;
+  top: 0;
+  height: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #ff5f5d;
+  background: linear-gradient(to bottom, #ff512f, #f09819);
 
   & button {
     width: 6rem;
@@ -162,12 +161,7 @@ export const StyledCard = styled.section`
   border-radius: 1rem;
   cursor: pointer;
   transition: transform 1s;
-  background: linear-gradient(
-    to right,
-    rgba(0, 92, 151, 0.4),
-    rgba(54, 55, 149, 0.4)
-  );
-
+  background-color: rgba(51, 51, 51, 0.8);
   color: #fff;
 
   & > .card-header {
@@ -180,8 +174,8 @@ export const StyledCard = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #00121e;
-    background-color: #ff5f5d;
+    background: linear-gradient(to top, #ff512f, #f09819);
+
     & > .location {
       display: flex;
       justify-content: flex-start;
@@ -238,7 +232,6 @@ export const StyledCard = styled.section`
       justify-content: space-between;
       align-items: center;
       font-size: 1.3rem;
-      background-color: #00375b;
 
       & > span {
         display: flex;
@@ -258,8 +251,8 @@ export const StyledCard = styled.section`
     align-items: center;
     font-size: 1.4rem;
     font-weight: 600;
-    background-color: #00121e;
     border-radius: 0 0 1rem 1rem;
+    background: linear-gradient(to bottom, #aaa, rgba(51, 51, 51, 0.8));
   }
 `;
 
@@ -270,20 +263,16 @@ export const StyledTable = styled.table`
   border-spacing: 0 0.3rem;
   font-size: 1.3rem;
   color: #fff;
-  background: linear-gradient(
-    to right,
-    rgba(0, 92, 151, 0.5),
-    rgba(54, 55, 149, 0.5)
-  );
+  background-color: rgba(44, 62, 80, 0.6);
   padding: 1rem;
   border-radius: 1rem;
   & th {
-    background-color: #005c97;
+    background: linear-gradient(to top, #ff512f, #f09819);
   }
 
   & tr {
     height: 2rem;
-    background: linear-gradient(to right, #005c97, #363795);
+    background-color: rgba(51, 51, 51, 0.8);
   }
 
   & td {
@@ -321,10 +310,8 @@ export const StyledDailyContainer = styled.section`
   padding: 1rem 2rem;
   overflow-x: auto;
   height: 12rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-
-  /* background: url(${Clear}); */
+  border-radius: 0.2rem;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const StyledDaily = styled.div`

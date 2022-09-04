@@ -6,8 +6,8 @@ import History from '../components/History';
 import withContext from '../hocs/withContext';
 import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
-
-const Home = ({ response, loading }) => {
+import setBg from '../services/setBg';
+const Home = ({ response, loading, detailPageTheme, setDetailPageTheme }) => {
   window.scroll(0, 0);
   const [queries, setQueries] = useState(
     JSON.parse(localStorage.getItem('history')) || []
@@ -24,8 +24,13 @@ const Home = ({ response, loading }) => {
     defaultCard(setDefaultQuery);
   }, []);
 
+  //? Arrange Background Theme
+  useEffect(() => {
+    setBg(response?.weather[0]?.id, setDetailPageTheme);
+  }, [response, setDetailPageTheme]);
+
   return (
-    <StyledContainer>
+    <StyledContainer theme={detailPageTheme}>
       <div className='response-item'>
         {response && <Card data={response} />}
         {!response && defaultQuery && <Card data={defaultQuery} />}
