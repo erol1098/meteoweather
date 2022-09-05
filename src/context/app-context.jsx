@@ -6,8 +6,9 @@ const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const [response, setResponse] = useState();
-  const [daily, setDaily] = useState();
   const [loading, setLoading] = useState(false);
+  const [daily, setDaily] = useState();
+  const [dailyLoading, setDailyLoading] = useState(false);
   const [detailPageTheme, setDetailPageTheme] = useState('empty');
 
   const { createUser, signIn, logOut, googleAuth, errorAuth, userInfo } =
@@ -16,12 +17,14 @@ export const AppContextProvider = ({ children }) => {
   const values = {
     response,
     setResponse,
-    daily,
-    setDaily,
-    detailPageTheme,
-    setDetailPageTheme,
     loading,
     setLoading,
+    daily,
+    setDaily,
+    dailyLoading,
+    setDailyLoading,
+    detailPageTheme,
+    setDetailPageTheme,
     userInfo,
     createUser,
     signIn,

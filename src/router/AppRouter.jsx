@@ -28,42 +28,64 @@ const AppRouter = ({ userInfo }) => {
               </ErrorBoundary>
             }
           />
-          <Route
-            path='login'
-            element={
-              !userInfo ? (
-                <ErrorBoundary>
-                  <SignIn />
-                </ErrorBoundary>
-              ) : (
-                <Navigate to={'/'} />
-              )
-            }
-          />
-          <Route
-            path='register'
-            element={
-              !userInfo ? (
-                <ErrorBoundary>
-                  <SignUp />
-                </ErrorBoundary>
-              ) : (
-                <Navigate to={'/'} />
-              )
-            }
-          />
-          <Route
-            path='details/:query'
-            element={
-              !userInfo ? (
-                <Navigate to='/login' />
-              ) : (
-                <ErrorBoundary>
-                  <DetailPage />
-                </ErrorBoundary>
-              )
-            }
-          />
+
+          {userInfo && (
+            <>
+              <Route
+                path='login'
+                element={
+                  <ErrorBoundary>
+                    <Navigate to={'/'} />
+                  </ErrorBoundary>
+                }
+              />
+              <Route
+                path='register'
+                element={
+                  <ErrorBoundary>
+                    <Navigate to={'/'} />
+                  </ErrorBoundary>
+                }
+              />
+
+              <Route
+                path='details/:query'
+                element={
+                  <ErrorBoundary>
+                    <DetailPage />
+                  </ErrorBoundary>
+                }
+              />
+            </>
+          )}
+          {!userInfo && (
+            <>
+              <Route
+                path='login'
+                element={
+                  <ErrorBoundary>
+                    <SignIn />
+                  </ErrorBoundary>
+                }
+              />
+              <Route
+                path='register'
+                element={
+                  <ErrorBoundary>
+                    <SignUp />
+                  </ErrorBoundary>
+                }
+              />
+              <Route
+                path='details/:query'
+                element={
+                  <ErrorBoundary>
+                    <SignIn />
+                  </ErrorBoundary>
+                }
+              />
+            </>
+          )}
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>

@@ -11,7 +11,6 @@ import withContext from '../hocs/withContext';
 
 const Card = ({ data, loading }) => {
   const navigate = useNavigate();
-  console.log(loading);
   if (loading)
     return (
       <StyledCard>

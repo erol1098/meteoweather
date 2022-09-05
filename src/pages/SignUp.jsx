@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { StyledForm, StyledMainContainer } from '../styles/styled-componets';
+import { SpinnerCircular } from 'spinners-react';
 
 import toastify from '../services/toastify';
 import withContext from '../hocs/withContext';
 
-const SignUp = ({ auth, userInfo, createUser, error }) => {
+const SignUp = ({ userInfo, createUser, error }) => {
   const navigate = useNavigate();
+  const [sending, setSending] = useState(false);
 
   const checkError = () => {
     toastify('error', error?.message);
@@ -19,7 +21,11 @@ const SignUp = ({ auth, userInfo, createUser, error }) => {
     const displayName = `${data.get('firstName')} ${data.get('lastName')}`;
     const email = data.get('email');
     const password = data.get('password1');
-    createUser(displayName, email, password);
+    (async () => {
+      setSending(true);
+      await createUser(displayName, email, password);
+      setSending(false);
+    })();
   };
 
   useEffect(() => {
@@ -50,8 +56,13 @@ const SignUp = ({ auth, userInfo, createUser, error }) => {
         <input type='password' name='password1' id='password1' required />
         <label htmlFor='password2'>Confirm Password</label>
         <input type='password' name='password2' id='password2' required />
-        <button type='submit'>Sign Up</button>
+        <button type='submit'>
+          {sending ? <SpinnerCircular size={30} color='white' /> : 'Sign Up'}
+        </button>
         <button type='button'>Sign In with Google</button>
+        <p onClick={() => navigate('/login')}>
+          Already have an account? Sign in
+        </p>
       </StyledForm>
     </StyledMainContainer>
   );

@@ -16,10 +16,12 @@ import withContext from '../hocs/withContext';
 import DailyCard from '../components/DailyCard';
 import setBg from '../services/setBg';
 import ErrorBoundary from '../components/ErrorBoundary';
+import { SpinnerCircularFixed } from 'spinners-react';
 
 const DetailPage = ({
   response,
   daily,
+  dailyLoading,
   detailPageTheme,
   setDetailPageTheme,
 }) => {
@@ -138,10 +140,12 @@ const DetailPage = ({
         </section>
         <ErrorBoundary>
           <StyledDailyContainer>
-            {!daily?.data && <p>Weather Data Unavailable!</p>}
-            {daily?.data?.map((day, i) => (
-              <DailyCard key={i} data={day} />
-            ))}
+            {!dailyLoading && !daily?.data && <p>Weather Data Unavailable!</p>}
+            {dailyLoading ? (
+              <SpinnerCircularFixed />
+            ) : (
+              daily?.data?.map((day, i) => <DailyCard key={i} data={day} />)
+            )}
           </StyledDailyContainer>
         </ErrorBoundary>
       </StyledDetailContainer>

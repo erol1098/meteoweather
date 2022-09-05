@@ -6,12 +6,14 @@ const withContext = (WrappedComponent) => {
     const {
       response,
       setResponse,
-      daily,
-      setDaily,
-      detailPageTheme,
-      setDetailPageTheme,
       loading,
       setLoading,
+      daily,
+      setDaily,
+      dailyLoading,
+      setDailyLoading,
+      detailPageTheme,
+      setDetailPageTheme,
       auth,
       db,
       userInfo,
@@ -25,12 +27,14 @@ const withContext = (WrappedComponent) => {
       <WrappedComponent
         response={response}
         setResponse={setResponse}
-        daily={daily}
-        setDaily={setDaily}
-        detailPageTheme={detailPageTheme}
-        setDetailPageTheme={setDetailPageTheme}
         loading={loading}
         setLoading={setLoading}
+        daily={daily}
+        setDaily={setDaily}
+        dailyLoading={dailyLoading}
+        setDailyLoading={setDailyLoading}
+        detailPageTheme={detailPageTheme}
+        setDetailPageTheme={setDetailPageTheme}
         auth={auth}
         db={db}
         userInfo={userInfo}

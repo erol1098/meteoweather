@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SpinnerCircular } from 'spinners-react';
 import withContext from '../hocs/withContext';
 import toastify from '../services/toastify';
 import { StyledMainContainer, StyledForm } from '../styles/styled-componets';
 const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
   const navigate = useNavigate();
-
+  const [sending, setSending] = useState(false);
   const checkError = () => {
     error && toastify('error', error?.message);
   };
@@ -15,7 +16,11 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
     const data = new FormData(e.currentTarget);
     const email = data.get('email');
     const password = data.get('password');
-    signIn(email, password);
+    (async () => {
+      setSending(true);
+      await signIn(email, password);
+      setSending(false);
+    })();
   };
 
   useEffect(() => {
@@ -27,7 +32,7 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
     userInfo && toastify('success', 'Logged In Successfully');
     userInfo && navigate('/');
   }, [userInfo, navigate]);
-
+  console.log(sending);
   return (
     <StyledMainContainer>
       <StyledForm onSubmit={handleSubmit}>
@@ -36,10 +41,15 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
         <input type='email' name='email' id='email' required autoFocus />
         <label htmlFor='password'>Password</label>
         <input type='password' name='password' id='password' required />
-        <button type='submit'>Sign In</button>
+        <button type='submit'>
+          {sending ? <SpinnerCircular size={30} color='white' /> : 'Sign In'}
+        </button>
         <button type='button' onClick={() => googleAuth()}>
           Sign In with Google
         </button>
+        <p onClick={() => navigate('/register')}>
+          Don't have an account? Sign Up
+        </p>
       </StyledForm>
     </StyledMainContainer>
   );

@@ -11,6 +11,7 @@ import '@geoapify/geocoder-autocomplete/styles/round-borders.css';
 import useFetchData from '../hooks/useFetchData';
 import withContext from '../hocs/withContext';
 import toastify from '../services/toastify';
+import Logo from '../assets/icon.png';
 
 const Header = ({ userInfo, logOut }) => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Header = ({ userInfo, logOut }) => {
   return (
     <StyledHeader>
       <div onClick={() => navigate('/')} className='logo'>
+        <img src={Logo} alt='' />
         <h2>Meteo</h2>
       </div>
       <GeoapifyContext apiKey={process.env.REACT_APP_CITY_API_KEY}>

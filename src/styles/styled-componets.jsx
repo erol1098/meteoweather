@@ -10,6 +10,8 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   font-family: 'Poppins', sans-serif;
+  background: url(${Bg}) fixed no-repeat center;
+  
   user-select:none;
 }
 `;
@@ -440,6 +442,15 @@ export const StyledForm = styled.form`
     background-color: white;
     color: green;
     border: 2px solid green;
+  }
+
+  & > p {
+    width: 100%;
+    font-weight: 600;
+    text-decoration: underline;
+    color: #fff;
+    text-align: end;
+    cursor: pointer;
   }
 `;
 
