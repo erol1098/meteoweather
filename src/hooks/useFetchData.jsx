@@ -4,7 +4,7 @@ import { useCallback, useContext, useEffect } from 'react';
 import AppContext from '../context/app-context';
 import toastify from '../services/toastify';
 
-const useFetchData = ({ city, code }, flag) => {
+const useFetchData = ({ city, code }, flag, units) => {
   const { setResponse, setDaily, setLoading, setDailyLoading } =
     useContext(AppContext);
 
@@ -14,7 +14,7 @@ const useFetchData = ({ city, code }, flag) => {
       if (flag === 'current' && city && code) {
         setLoading(true);
         const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city},${code}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city},${code}&units=${units}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         );
         setResponse(data);
 

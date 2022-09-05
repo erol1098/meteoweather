@@ -11,6 +11,12 @@ export const AppContextProvider = ({ children }) => {
   const [dailyLoading, setDailyLoading] = useState(false);
   const [detailPageTheme, setDetailPageTheme] = useState('empty');
 
+  const [units, setUnits] = useState('metric');
+  const [measurements, setMeasurements] = useState({
+    velocity: 'm/s',
+    degree: '°C',
+  });
+
   const { createUser, signIn, logOut, googleAuth, errorAuth, userInfo } =
     useFirebase();
 
@@ -31,6 +37,10 @@ export const AppContextProvider = ({ children }) => {
     logOut,
     googleAuth,
     error: errorAuth,
+    units,
+    setUnits,
+    measurements,
+    setMeasurements,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

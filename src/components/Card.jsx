@@ -9,7 +9,7 @@ import { GoLocation } from 'react-icons/go';
 
 import withContext from '../hocs/withContext';
 
-const Card = ({ data, loading }) => {
+const Card = ({ data, loading, measurements }) => {
   const navigate = useNavigate();
   if (loading)
     return (
@@ -45,14 +45,15 @@ const Card = ({ data, loading }) => {
         {' '}
         <div className='temps'>
           <span>{Math.round(data?.main?.temp_min)}</span>
-          {'°C / '}
+          {measurements?.degree}
+          {' / '}
           <span>{Math.round(data?.main?.temp_max)}</span>
-          {'°C'}
+          {measurements?.degree}
         </div>
         <div className='data-wrapper'>
           <p className='current-temp'>
             {Math.round(data?.main?.temp)}
-            {'°C'}
+            {measurements?.degree}
           </p>
           <p className='status'>{data?.weather[0]?.main}</p>
         </div>
@@ -69,7 +70,7 @@ const Card = ({ data, loading }) => {
 
           <span>
             <GiWindsock size={30} />
-            {Math.round(data?.wind?.speed)}km/h
+            {Math.round(data?.wind?.speed)} {measurements?.velocity}
           </span>
           <span>
             <GiRoundKnob size={30} />

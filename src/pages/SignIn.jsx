@@ -32,7 +32,7 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
     userInfo && toastify('success', 'Logged In Successfully');
     userInfo && navigate('/');
   }, [userInfo, navigate]);
-  console.log(sending);
+
   return (
     <StyledMainContainer>
       <StyledForm onSubmit={handleSubmit}>

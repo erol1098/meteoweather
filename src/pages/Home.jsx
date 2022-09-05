@@ -7,6 +7,7 @@ import withContext from '../hocs/withContext';
 import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
 import setBg from '../services/setBg';
+
 const Home = ({ response, loading, detailPageTheme, setDetailPageTheme }) => {
   window.scroll(0, 0);
   const [queries, setQueries] = useState(

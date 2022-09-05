@@ -14,14 +14,16 @@ const withContext = (WrappedComponent) => {
       setDailyLoading,
       detailPageTheme,
       setDetailPageTheme,
-      auth,
-      db,
       userInfo,
       createUser,
       signIn,
       logOut,
       googleAuth,
       error,
+      units,
+      setUnits,
+      measurements,
+      setMeasurements,
     } = useContext(AppContext);
     return (
       <WrappedComponent
@@ -35,13 +37,15 @@ const withContext = (WrappedComponent) => {
         setDailyLoading={setDailyLoading}
         detailPageTheme={detailPageTheme}
         setDetailPageTheme={setDetailPageTheme}
-        auth={auth}
-        db={db}
         userInfo={userInfo}
         logOut={logOut}
         createUser={createUser}
         signIn={signIn}
         googleAuth={googleAuth}
+        units={units}
+        setUnits={setUnits}
+        measurements={measurements}
+        setMeasurements={setMeasurements}
         error={error}
         {...props}
       />
