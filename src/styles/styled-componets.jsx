@@ -153,6 +153,7 @@ export const StyledHeader = styled.header`
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.7);
   }
 
   & > div {
@@ -164,6 +165,7 @@ export const StyledHeader = styled.header`
 
   & > .logo {
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.7);
   }
 
   & .geocoder-container {
