@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
   font-family: 'Poppins', sans-serif;
   background: url(${Bg}) fixed no-repeat center;
-  
+  min-width:500px;
   user-select:none;
 }
 `;
@@ -69,6 +69,15 @@ export const StyledDetailContainer = styled.main`
   padding: 3rem 0;
 
   & > .top-side {
+    @media (max-width: 1060px) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+
+      & .middle-side {
+        order: 2;
+      }
+    }
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -139,7 +148,16 @@ export const StyledDetailContainer = styled.main`
 `;
 
 export const StyledHeader = styled.header`
-  height: 6rem;
+  @media (max-width: 976px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    & > button {
+      width: 100%;
+    }
+  }
+  min-height: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -172,6 +190,7 @@ export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     width: 50%;
+    min-width: 450px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
       rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 0.5rem;

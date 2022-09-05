@@ -35,7 +35,7 @@ const Header = ({ userInfo, logOut }) => {
     <StyledHeader>
       <div onClick={() => navigate('/')} className='logo'>
         <img src={Logo} alt='' />
-        <h2>Meteo</h2>
+        <h1>Meteo</h1>
       </div>
       <GeoapifyContext apiKey={process.env.REACT_APP_CITY_API_KEY}>
         <GeoapifyGeocoderAutocomplete
