@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StyledHeader } from '../styles/styled-componets';
+import { Button, StyledHeader } from '../styles/styled-componets';
 
 import {
   GeoapifyGeocoderAutocomplete,
@@ -21,8 +21,8 @@ const Header = ({ userInfo, logOut }) => {
 
   const onPlaceSelect = (value) => {
     setQuery({
-      city: value?.properties?.city,
-      code: value?.properties?.country_code,
+      city: value?.properties?.city?.toLocaleLowerCase(),
+      code: value?.properties?.country_code?.toLocaleLowerCase(),
     });
     navigate('/');
   };
@@ -48,17 +48,26 @@ const Header = ({ userInfo, logOut }) => {
       <div>
         {!userInfo && (
           <>
-            <button type='button' onClick={() => navigate('/login')}>
+            <Button
+              className='login-btn'
+              type='button'
+              onClick={() => navigate('/login')}
+            >
               Login
-            </button>
-            <button type='button' onClick={() => navigate('/register')}>
+            </Button>
+            <Button
+              className='register-btn'
+              type='button'
+              onClick={() => navigate('/register')}
+            >
               Register
-            </button>
+            </Button>
           </>
         )}
         {userInfo && (
-          <button
+          <Button
             type='button'
+            className='logout-btn'
             onClick={() => {
               logOut();
               toastify('info', 'Logged Out!');
@@ -66,7 +75,7 @@ const Header = ({ userInfo, logOut }) => {
             }}
           >
             Logout
-          </button>
+          </Button>
         )}
       </div>
     </StyledHeader>

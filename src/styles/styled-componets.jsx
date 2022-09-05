@@ -139,6 +139,7 @@ export const StyledDetailContainer = styled.main`
     & .current {
       font-size: 2rem;
       font-weight: 700;
+      text-align: center;
     }
     & .current-temp {
       font-size: 3rem;
@@ -478,12 +479,29 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   font-size: 1.1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -50px 36px -28px inset;
 
   &.home {
     background-color: green;
     color: white;
   }
+
   &.go-back {
     background-color: yellow;
+  }
+
+  &.logout-btn {
+    border: 3px solid #f32424;
+    color: #f32424;
+  }
+
+  &.register-btn {
+    border: 3px solid #5800ff;
+    color: #5800ff;
+  }
+
+  &.login-btn {
+    border: 3px solid green;
+    color: green;
   }
 `;

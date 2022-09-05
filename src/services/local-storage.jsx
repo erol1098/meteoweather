@@ -1,5 +1,5 @@
 const setStorage = (response, setQueries) => {
-  const searchParams = `${response?.name?.toLowerCase()},${response?.sys?.country?.toLowerCase()}`;
+  const searchParams = `${response?.name?.toLocaleLowerCase()},${response?.sys?.country?.toLocaleLowerCase()}`;
 
   if (localStorage.getItem('history') && response) {
     const arr = JSON.parse(localStorage.getItem('history'));
