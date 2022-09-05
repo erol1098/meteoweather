@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
   font-family: 'Poppins', sans-serif;
   background: url(${Bg}) fixed no-repeat center;
-  min-width:500px;
+  min-width:550px;
   user-select:none;
 }
 `;
@@ -152,10 +152,6 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-
-    & > button {
-      width: 100%;
-    }
   }
   min-height: 6rem;
   display: flex;

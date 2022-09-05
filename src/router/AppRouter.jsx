@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import ErrorBoundary from '../components/ErrorBoundary';
 import Header from '../components/Header';
@@ -29,66 +30,36 @@ const AppRouter = ({ userInfo }) => {
             }
           />
 
-          {userInfo && (
-            <>
-              <Route
-                path='login'
-                element={
-                  <ErrorBoundary>
-                    <Navigate to={'/'} />
-                  </ErrorBoundary>
-                }
-              />
-              <Route
-                path='register'
-                element={
-                  <ErrorBoundary>
-                    <Navigate to={'/'} />
-                  </ErrorBoundary>
-                }
-              />
+          <Route
+            path='details/:query'
+            element={
+              <ErrorBoundary>
+                <DetailPage />
+              </ErrorBoundary>
+            }
+          />
 
-              <Route
-                path='details/:query'
-                element={
-                  <ErrorBoundary>
-                    <DetailPage />
-                  </ErrorBoundary>
-                }
-              />
-            </>
-          )}
-          {!userInfo && (
-            <>
-              <Route
-                path='login'
-                element={
-                  <ErrorBoundary>
-                    <SignIn />
-                  </ErrorBoundary>
-                }
-              />
-              <Route
-                path='register'
-                element={
-                  <ErrorBoundary>
-                    <SignUp />
-                  </ErrorBoundary>
-                }
-              />
-              <Route
-                path='details/:query'
-                element={
-                  <ErrorBoundary>
-                    <SignIn />
-                  </ErrorBoundary>
-                }
-              />
-            </>
-          )}
+          <Route
+            path='login'
+            element={
+              <ErrorBoundary>
+                <SignIn />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path='register'
+            element={
+              <ErrorBoundary>
+                <SignUp />
+              </ErrorBoundary>
+            }
+          />
+
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>
+      <ToastContainer />
     </BrowserRouter>
   );
 };

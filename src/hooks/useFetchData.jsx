@@ -4,8 +4,8 @@ import { useCallback, useContext, useEffect } from 'react';
 import AppContext from '../context/app-context';
 import toastify from '../services/toastify';
 
-const useFetchData = ({ city, code }, flag, units) => {
-  const { setResponse, setDaily, setLoading, setDailyLoading } =
+const useFetchData = ({ city, code }, flag) => {
+  const { setResponse, setDaily, setLoading, setDailyLoading, units } =
     useContext(AppContext);
 
   const getData = useCallback(async () => {

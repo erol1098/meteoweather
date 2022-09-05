@@ -24,6 +24,8 @@ const withContext = (WrappedComponent) => {
       setUnits,
       measurements,
       setMeasurements,
+      isLoggedIn,
+      setIsLoggedIn,
     } = useContext(AppContext);
     return (
       <WrappedComponent
@@ -46,6 +48,8 @@ const withContext = (WrappedComponent) => {
         setUnits={setUnits}
         measurements={measurements}
         setMeasurements={setMeasurements}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
         error={error}
         {...props}
       />

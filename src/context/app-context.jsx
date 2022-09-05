@@ -5,6 +5,7 @@ import useFirebase from '../hooks/useFirebase';
 const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [response, setResponse] = useState();
   const [loading, setLoading] = useState(false);
   const [daily, setDaily] = useState();
@@ -41,6 +42,8 @@ export const AppContextProvider = ({ children }) => {
     setUnits,
     measurements,
     setMeasurements,
+    isLoggedIn,
+    setIsLoggedIn,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
