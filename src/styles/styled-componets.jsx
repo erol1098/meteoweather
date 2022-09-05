@@ -108,6 +108,7 @@ export const StyledDetailContainer = styled.main`
     flex-direction: column;
     gap: 1.4rem;
     background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
 
     & > div,
     span {
@@ -126,6 +127,7 @@ export const StyledDetailContainer = styled.main`
     gap: 1rem;
     font-size: 1.5rem;
     background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.2rem 0;
 
     & > div,
     span {
@@ -362,7 +364,7 @@ export const StyledDailyContainer = styled.section`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   padding: 1rem 2rem;
   overflow-x: auto;
@@ -479,7 +481,7 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   font-size: 1.1rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px -50px 36px -28px inset;
+  font-weight: 600;
 
   &.home {
     background-color: green;
@@ -501,7 +503,7 @@ export const Button = styled.button`
   }
 
   &.login-btn {
-    border: 3px solid green;
+    border: 3px solid rgb(1, 107, 1);
     color: green;
   }
 `;

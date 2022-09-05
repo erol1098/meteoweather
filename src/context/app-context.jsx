@@ -14,7 +14,7 @@ export const AppContextProvider = ({ children }) => {
 
   const [units, setUnits] = useState('metric');
   const [measurements, setMeasurements] = useState({
-    velocity: 'm/s',
+    velocity: 'km/h',
     degree: '°C',
   });
 

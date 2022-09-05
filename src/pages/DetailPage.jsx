@@ -133,7 +133,7 @@ const DetailPage = ({
               <GiWindsock size={40} color='#F32424' />
               {' Wind : '}
               {response?.wind?.deg}
-              {'°'} / {response?.wind?.speed}
+              {'°'} / {Math.round(response?.wind?.speed * 3.6)}
               {' km/h'}
             </div>
           </section>
