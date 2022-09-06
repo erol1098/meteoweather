@@ -25,7 +25,7 @@ export const StyledContainer = styled.main`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
 
   & > .history-items {
     display: flex;
@@ -107,7 +107,7 @@ export const StyledDetailContainer = styled.main`
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     font-size: 1.2rem;
 
     & > div,
@@ -366,11 +366,11 @@ export const StyledDailyContainer = styled.section`
   align-items: center;
   justify-content: flex-start;
   gap: 0.5rem;
-  padding: 1rem 2rem;
+  padding: 0.4rem 1rem;
   overflow-x: auto;
   height: 12rem;
   border-radius: 0.2rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
 `;
 
 export const StyledDaily = styled.div`

@@ -70,6 +70,7 @@ const Header = ({ userInfo, logOut }) => {
             className='logout-btn'
             onClick={() => {
               logOut();
+              localStorage.removeItem('accessToken');
               toastify('info', 'Logged Out!');
               navigate('/');
             }}

@@ -20,6 +20,11 @@ export const AppContextProvider = ({ children }) => {
 
   const { createUser, signIn, logOut, googleAuth, errorAuth, userInfo } =
     useFirebase();
+  console.log('object', userInfo);
+
+  if (userInfo) {
+    localStorage.setItem('accessToken', userInfo?.accessToken);
+  }
 
   const values = {
     response,

@@ -1,8 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import AppContext from '../context/app-context';
 
 const withContext = (WrappedComponent) => {
   return (props) => {
+    const token = useRef(localStorage.getItem('accessToken') || '');
+
     const {
       response,
       setResponse,
@@ -51,6 +53,7 @@ const withContext = (WrappedComponent) => {
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
         error={error}
+        token={token}
         {...props}
       />
     );

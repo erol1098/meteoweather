@@ -5,7 +5,7 @@ import withContext from '../hocs/withContext';
 import toastify from '../services/toastify';
 import { StyledMainContainer, StyledForm } from '../styles/styled-componets';
 
-const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
+const SignIn = ({ userInfo, signIn, googleAuth, error, token }) => {
   const navigate = useNavigate();
   const [sending, setSending] = useState(false);
 
@@ -36,7 +36,7 @@ const SignIn = ({ userInfo, signIn, googleAuth, error }) => {
     userInfo && navigate('/');
   }, [userInfo, navigate]);
 
-  if (userInfo) return <Navigate to={'/'} />;
+  if (token.current) return <Navigate to={'/'} />;
   else
     return (
       <StyledMainContainer>
