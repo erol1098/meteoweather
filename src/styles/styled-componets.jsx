@@ -371,6 +371,10 @@ export const StyledDailyContainer = styled.section`
   height: 12rem;
   border-radius: 0.2rem;
   background-color: rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 1540px) {
+    justify-content: center;
+  }
 `;
 
 export const StyledDaily = styled.div`

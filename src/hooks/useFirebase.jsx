@@ -14,8 +14,9 @@ const useFirebase = () => {
 
   useEffect(() => {
     userObserver(auth);
+    userInfo && localStorage.setItem('accessToken', userInfo?.accessToken);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [userInfo]);
 
   //? For Authentication Process
   const {

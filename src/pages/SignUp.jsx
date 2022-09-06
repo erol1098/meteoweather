@@ -17,16 +17,20 @@ const SignUp = ({ userInfo, createUser, error, token }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const data = new FormData(e.currentTarget);
     const displayName = `${data.get('firstName')} ${data.get('lastName')}`;
     const email = data.get('email');
-    const password = data.get('password1');
+    const password1 = data.get('password1');
+    const password2 = data.get('password2');
 
-    (async () => {
-      setSending(true);
-      await createUser(displayName, email, password);
-      setSending(false);
-    })();
+    if (password1 === password2) {
+      (async () => {
+        setSending(true);
+        await createUser(displayName, email, password1);
+        setSending(false);
+      })();
+    } else toastify('error', 'Passwords Did Not Match!');
   };
 
   useEffect(() => {
