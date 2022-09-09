@@ -50,7 +50,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com)
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/erol1098/meteo
+$ git clone https://github.com/erol1098/meteoweather
 
 # Install dependencies
     $ yarn
