@@ -7,7 +7,7 @@ const getData = async (searchParams, setResponse, setLoading) => {
   try {
     setLoading(true);
     const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${searchParams}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${searchParams.lat}&lon=${searchParams.lon}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}&lang=en`
     );
     setResponse(data);
   } catch (error) {
@@ -18,6 +18,7 @@ const getData = async (searchParams, setResponse, setLoading) => {
 };
 
 const historyCard = (searchParams, setResponse, setLoading) => {
+  console.log('first');
   getData(searchParams, setResponse, setLoading);
 };
 export default historyCard;

@@ -7,6 +7,7 @@ import historyCard from '../services/historyCard';
 const History = ({ queries, setResponse, setLoading }) => {
   //? Fetch current weather data of clicked history city's item
   const handleClick = (searchParams) => {
+    console.log('object');
     historyCard(searchParams, setResponse, setLoading);
   };
 
@@ -26,7 +27,7 @@ const History = ({ queries, setResponse, setLoading }) => {
           </tr>
         )}
         {queries?.map((query, i) => (
-          <tr key={i} onClick={() => handleClick(query?.searchParams)}>
+          <tr key={i} onClick={() => handleClick(query?.response?.coord)}>
             <td>
               <p>
                 {query?.response?.name?.replace(' Province', '').toUpperCase()}
