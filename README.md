@@ -23,7 +23,6 @@
 - [Built With](#built-with)
 - [Features](#features)
 - [How to use](#how-to-use)
-- [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
 <!-- OVERVIEW -->
@@ -42,6 +41,10 @@
 - React
 - Firebase Authentication
 - Styled Components
+
+## Features
+
+- Information for your projects
 
 ## How To Use
 
@@ -62,14 +65,7 @@ $ git clone https://github.com/erol1098/meteo
     $ yarn start
 ```
 
-## Acknowledgements
-
-- Information for your projects
-
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-
-- Linkedin [@your-linkedin](https://{linkedin.com/your-username})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- GitHub [@your-username](https://github.com/erol1098)
+- Linkedin [@your-linkedin](https://www.linkedin.com/in/erol-mahmutoglu/)
