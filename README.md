@@ -23,14 +23,16 @@
 - [Built With](#built-with)
 - [Features](#features)
 - [How to use](#how-to-use)
-- [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
 <!-- OVERVIEW -->
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![image](https://user-images.githubusercontent.com/99766307/189446015-2733d508-209c-4485-9980-6b391c43876f.png)
+##
+![image](https://user-images.githubusercontent.com/99766307/189446094-3bce2b8a-b9e2-4d6c-b698-9922977137f8.png)
+
 
 ### Built With
 
@@ -39,6 +41,10 @@
 - React
 - Firebase Authentication
 - Styled Components
+
+## Features
+
+- Information for your projects
 
 ## How To Use
 
@@ -59,14 +65,7 @@ $ git clone https://github.com/erol1098/meteo
     $ yarn start
 ```
 
-## Acknowledgements
-
-- Information for your projects
-
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-
-- Linkedin [@your-linkedin](https://{linkedin.com/your-username})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- GitHub [@your-username](https://github.com/erol1098)
+- Linkedin [@your-linkedin](https://www.linkedin.com/in/erol-mahmutoglu/)
