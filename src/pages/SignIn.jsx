@@ -7,8 +7,11 @@ import { StyledMainContainer, StyledForm } from '../styles/styled-componets';
 
 const SignIn = ({ userInfo, signIn, googleAuth, error, token }) => {
   const navigate = useNavigate();
+
+  //? For showing user that sign in is in progress
   const [sending, setSending] = useState(false);
 
+  //? For Toastify Error Messages
   const checkError = () => {
     error && toastify('error', error?.message);
   };
@@ -31,6 +34,7 @@ const SignIn = ({ userInfo, signIn, googleAuth, error, token }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
+  //? For Toastify Success Messages
   useEffect(() => {
     userInfo && toastify('success', 'Logged In Successfully');
     userInfo && navigate('/');
@@ -42,6 +46,7 @@ const SignIn = ({ userInfo, signIn, googleAuth, error, token }) => {
       <StyledMainContainer>
         <StyledForm onSubmit={handleSubmit}>
           <h1>Sign In</h1>
+          <hr />
           <label htmlFor='email'>Email</label>
           <input type='email' name='email' id='email' required autoFocus />
           <label htmlFor='password'>Password</label>

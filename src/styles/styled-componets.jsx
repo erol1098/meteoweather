@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 import Bg from '../assets/bg.jpg';
+import NotFound from '../assets/not-found.png';
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -41,15 +42,20 @@ export const StyledContainer = styled.main`
 export const StyledMainContainer = styled(StyledContainer)`
   background: url(${Bg}) fixed no-repeat center;
 
-  & > section {
+  & > .not-found {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     gap: 5rem;
     width: 100%;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    padding-bottom: 2rem;
+    height: calc(100vh - 12rem);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fefefe;
+    background: url(${NotFound}) no-repeat center;
+    background-size: contain;
+
     & > div {
       display: flex;
       gap: 2rem;
@@ -372,6 +378,14 @@ export const StyledDailyContainer = styled.section`
   border-radius: 0.2rem;
   background-color: rgba(0, 0, 0, 0.6);
 
+  & > p {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
   @media (min-width: 1540px) {
     justify-content: center;
   }
@@ -428,8 +442,8 @@ export const StyledForm = styled.form`
   align-items: flex-start;
   justify-content: center;
   border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 3px 8px;
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ddd;
   & > h1 {
     text-align: center;
@@ -475,6 +489,16 @@ export const StyledForm = styled.form`
     color: #fff;
     text-align: end;
     cursor: pointer;
+  }
+
+  & > hr {
+    width: 100%;
+    height: 0.5rem;
+    background: linear-gradient(to top, #ff512f, #f09819);
+  }
+
+  & > label {
+    font-weight: 600;
   }
 `;
 

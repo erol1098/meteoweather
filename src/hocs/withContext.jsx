@@ -1,4 +1,5 @@
 import { useContext, useRef } from 'react';
+
 import AppContext from '../context/app-context';
 
 const withContext = (WrappedComponent) => {
@@ -6,29 +7,37 @@ const withContext = (WrappedComponent) => {
     const token = useRef(localStorage.getItem('accessToken') || '');
 
     const {
+      //? Main Card
       response,
       setResponse,
       loading,
       setLoading,
+
+      //? Daily Cards
       daily,
       setDaily,
       dailyLoading,
       setDailyLoading,
+
+      //? Detail Page
       detailPageTheme,
       setDetailPageTheme,
+
+      //? Firebase Authentication
       userInfo,
       createUser,
       signIn,
       logOut,
       googleAuth,
       error,
+
+      //? Units
       units,
       setUnits,
       measurements,
       setMeasurements,
-      isLoggedIn,
-      setIsLoggedIn,
     } = useContext(AppContext);
+
     return (
       <WrappedComponent
         response={response}
@@ -50,8 +59,6 @@ const withContext = (WrappedComponent) => {
         setUnits={setUnits}
         measurements={measurements}
         setMeasurements={setMeasurements}
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
         error={error}
         token={token}
         {...props}

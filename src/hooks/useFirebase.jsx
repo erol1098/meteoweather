@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+
 import { useAuth, useFirestore, initialize } from 'web-firebase';
 
+//? My "web-firebase" Library for making easier some of Firebase authentication and Firestore database operations
 const useFirebase = () => {
   const { auth, db } = initialize({
     apiKey: process.env.REACT_APP_API_KEY,
@@ -32,7 +34,7 @@ const useFirebase = () => {
     error: errorAuth,
   } = useAuth(auth);
 
-  //? For Firebase Database Process
+  //? For Firebase Database Operations
   const {
     addNewEntry,
     getEntries,
@@ -54,6 +56,7 @@ const useFirebase = () => {
     logOut,
     errorAuth,
     userInfo,
+
     //? Firebase
     addNewEntry,
     getEntries,

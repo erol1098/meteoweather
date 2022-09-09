@@ -10,6 +10,7 @@ import sct from '../assets/sct.jpg';
 import bkn from '../assets/bkn.jpg';
 import overcast from '../assets/ovc.jpg';
 
+//? For Background Theme According To Weather Info
 const setBg = (id = 0, setDetailPageTheme) => {
   if (id === 800) setDetailPageTheme(clear);
   if (id === 801) setDetailPageTheme(few);

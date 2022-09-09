@@ -9,8 +9,11 @@ import withContext from '../hocs/withContext';
 
 const SignUp = ({ userInfo, createUser, error, token }) => {
   const navigate = useNavigate();
+
+  //? For showing user that sign up is in progress
   const [sending, setSending] = useState(false);
 
+  //? For Toastify Error Messages
   const checkError = () => {
     error && toastify('error', error?.message);
   };
@@ -38,6 +41,7 @@ const SignUp = ({ userInfo, createUser, error, token }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
+  //? For Toastify Success Messages
   useEffect(() => {
     userInfo && toastify('success', 'Registered Successfully');
     userInfo && navigate('/');
@@ -48,6 +52,7 @@ const SignUp = ({ userInfo, createUser, error, token }) => {
     <StyledMainContainer>
       <StyledForm onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
+        <hr />
         <label htmlFor='first-name'>First Name</label>
         <input
           type='text'

@@ -1,5 +1,5 @@
 const setStorage = (response, setQueries) => {
-  const searchParams = `${response?.name?.toLocaleLowerCase()},${response?.sys?.country?.toLocaleLowerCase()}`;
+  const searchParams = `${response?.name?.toLowerCase()},${response?.sys?.country?.toLowerCase()}`;
 
   if (localStorage.getItem('history') && response) {
     const arr = JSON.parse(localStorage.getItem('history'));
@@ -7,8 +7,7 @@ const setStorage = (response, setQueries) => {
     if (
       arr.every(
         (city) =>
-          city.response.name.toLocaleLowerCase() !==
-          response.name.toLocaleLowerCase()
+          city.response.name.toLowerCase() !== response.name.toLowerCase()
       )
     ) {
       arr.unshift({ searchParams, response });
@@ -16,7 +15,8 @@ const setStorage = (response, setQueries) => {
       setQueries(arr.slice(0, 4));
     } else {
       const tempArr = arr.filter(
-        (city) => city.response.name !== response.name
+        (city) =>
+          city.response.name.toLowerCase() !== response.name.toLowerCase()
       );
       tempArr.unshift({ searchParams, response });
       setQueries(tempArr.slice(0, 4));

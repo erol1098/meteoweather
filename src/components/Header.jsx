@@ -16,9 +16,11 @@ import Logo from '../assets/icon.png';
 const Header = ({ userInfo, logOut }) => {
   const navigate = useNavigate();
 
+  //? Take user's search query and fetch weather data
   const [query, setQuery] = useState({ city: '', code: '' });
   useFetchData(query, 'current');
 
+  //? Take user's search query from Geoapify
   const onPlaceSelect = (value) => {
     setQuery({
       city: value?.properties?.city?.toLocaleLowerCase(),
@@ -27,6 +29,7 @@ const Header = ({ userInfo, logOut }) => {
     navigate('/');
   };
 
+  //? Formats query's result with desired parameters
   const postprocessHook = (feature) => {
     return `${feature?.properties?.city} - ${feature?.properties?.country}`;
   };
@@ -34,7 +37,7 @@ const Header = ({ userInfo, logOut }) => {
   return (
     <StyledHeader>
       <div onClick={() => navigate('/')} className='logo'>
-        <img src={Logo} alt='' />
+        <img src={Logo} alt='logo' />
         <h1>Meteo</h1>
       </div>
       <GeoapifyContext apiKey={process.env.REACT_APP_CITY_API_KEY}>

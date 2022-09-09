@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+import toastify from './toastify';
+
+//? Fetch Weather Data According To Clicked Historical Data
 const getData = async (searchParams, setResponse, setLoading) => {
   try {
     setLoading(true);
@@ -8,7 +11,7 @@ const getData = async (searchParams, setResponse, setLoading) => {
     );
     setResponse(data);
   } catch (error) {
-    console.log('error', error.response?.data.message);
+    toastify('error', error.response?.data.message);
   } finally {
     setLoading(false);
   }

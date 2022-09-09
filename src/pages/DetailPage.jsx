@@ -4,6 +4,9 @@ import {
   StyledDailyContainer,
 } from '../styles/styled-componets';
 import { Navigate, useParams } from 'react-router-dom';
+
+import { SpinnerCircularFixed } from 'spinners-react';
+
 import { GoLocation } from 'react-icons/go';
 import { FiSunrise, FiSunset } from 'react-icons/fi';
 import { FaTemperatureHigh, FaTemperatureLow } from 'react-icons/fa';
@@ -11,12 +14,11 @@ import { GiWindsock, GiRoundKnob } from 'react-icons/gi';
 import { BsDroplet } from 'react-icons/bs';
 import { FaRegGrinBeamSweat } from 'react-icons/fa';
 
+import ErrorBoundary from '../components/ErrorBoundary';
 import useFetchData from '../hooks/useFetchData';
 import withContext from '../hocs/withContext';
 import DailyCard from '../components/DailyCard';
 import setBg from '../services/setBg';
-import ErrorBoundary from '../components/ErrorBoundary';
-import { SpinnerCircularFixed } from 'spinners-react';
 
 const DetailPage = ({
   response,
@@ -26,11 +28,12 @@ const DetailPage = ({
   setDetailPageTheme,
   token,
 }) => {
+  //? Taking search query from URL and fetching current and daily data
   const { query } = useParams();
   const arr = query.split('-');
 
-  useFetchData({ city: arr[0]?.toLocaleLowerCase(), code: arr[1] }, 'current');
-  useFetchData({ city: arr[0]?.toLocaleLowerCase(), code: arr[1] }, 'daily');
+  useFetchData({ city: arr[0]?.toLocaleLowerCase(), code: arr[1] }, 'current'); //? For current data
+  useFetchData({ city: arr[0]?.toLocaleLowerCase(), code: arr[1] }, 'daily'); //? For daily data
 
   useEffect(() => {
     setBg(response?.weather[0]?.id, setDetailPageTheme);
@@ -63,7 +66,6 @@ const DetailPage = ({
                   }).format(response?.sys?.sunset * 1000 || new Date())}
                 </span>
               </div>
-
               <div>
                 <span>
                   <FaTemperatureHigh size={40} color='#D61C4E' />
@@ -81,6 +83,7 @@ const DetailPage = ({
                 </span>
               </div>
             </section>
+
             <section className='left-side'>
               <div>
                 <GoLocation size={30} color='#F32424' />
@@ -142,13 +145,16 @@ const DetailPage = ({
               </div>
             </section>
           </section>
+
           <ErrorBoundary>
             <StyledDailyContainer>
               {!dailyLoading && !daily?.data && (
                 <p>Weather Data Unavailable!</p>
               )}
               {dailyLoading ? (
-                <SpinnerCircularFixed />
+                <p>
+                  <SpinnerCircularFixed />
+                </p>
               ) : (
                 daily?.data?.map((day, i) => <DailyCard key={i} data={day} />)
               )}

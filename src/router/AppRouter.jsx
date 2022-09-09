@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { ToastContainer } from 'react-toastify';
 
 import ErrorBoundary from '../components/ErrorBoundary';
@@ -7,13 +8,14 @@ import Header from '../components/Header';
 import LazyLoading from '../components/LazyLoading';
 import withContext from '../hocs/withContext';
 
+//? Lazy Loading Components
 const Home = lazy(() => import('../pages/Home'));
 const DetailPage = lazy(() => import('../pages/DetailPage'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 const SignIn = lazy(() => import('../pages/SignIn'));
 const SignUp = lazy(() => import('../pages/SignUp'));
 
-const AppRouter = ({ userInfo }) => {
+const AppRouter = () => {
   return (
     <BrowserRouter>
       <ErrorBoundary>

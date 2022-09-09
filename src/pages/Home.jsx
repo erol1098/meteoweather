@@ -4,23 +4,26 @@ import { StyledContainer, StyledTable } from '../styles/styled-componets';
 import Card from '../components/Card';
 import History from '../components/History';
 import withContext from '../hocs/withContext';
+
 import defaultCard from '../services/defaultCard';
 import setStorage from '../services/local-storage';
 import setBg from '../services/setBg';
 
 const Home = ({ response, loading, detailPageTheme, setDetailPageTheme }) => {
   window.scroll(0, 0);
+
+  //? For historical data
   const [queries, setQueries] = useState(
     JSON.parse(localStorage.getItem('history')) || []
   );
   const [defaultQuery, setDefaultQuery] = useState();
 
-  //? Writing Responses to Local Storage
+  //? Writing Responses to the Local Storage
   useEffect(() => {
     setStorage(response, setQueries);
   }, [response]);
 
-  //? First Card Render If Location Services is On
+  //? Default card render if Location Services is allowed
   useEffect(() => {
     defaultCard(setDefaultQuery);
   }, []);
@@ -45,8 +48,9 @@ const Home = ({ response, loading, detailPageTheme, setDetailPageTheme }) => {
             <tbody>
               <tr>
                 <td colSpan={3}>
-                  Please allow location for reaching weather forecast of your
-                  current location or use search for new query
+                  Please allow location services for your current location
+                  <br /> or <br />
+                  Use search bar for new query.
                 </td>
               </tr>
             </tbody>

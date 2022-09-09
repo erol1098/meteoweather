@@ -1,9 +1,11 @@
 import React from 'react';
-import withContext from '../hocs/withContext';
-import historyCard from '../services/historyCard';
 import { StyledTable } from '../styles/styled-componets';
 
+import withContext from '../hocs/withContext';
+import historyCard from '../services/historyCard';
+
 const History = ({ queries, setResponse, setLoading }) => {
+  //? Fetch current weather data of clicked history city's item
   const handleClick = (searchParams) => {
     historyCard(searchParams, setResponse, setLoading);
   };

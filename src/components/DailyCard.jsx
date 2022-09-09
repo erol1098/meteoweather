@@ -2,6 +2,7 @@ import React from 'react';
 import { StyledDaily } from '../styles/styled-componets';
 
 const DailyCard = ({ data }) => {
+  //? Renders daily weather data in bottom of Detail Page
   return (
     <StyledDaily>
       <p>

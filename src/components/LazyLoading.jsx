@@ -1,6 +1,7 @@
 import React from 'react';
-import { SpinnerCircularFixed } from 'spinners-react';
 import { StyledContainer } from '../styles/styled-componets';
+
+import { SpinnerCircularFixed } from 'spinners-react';
 
 const LazyLoading = () => {
   return (

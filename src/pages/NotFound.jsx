@@ -4,10 +4,10 @@ import { Button, StyledMainContainer } from '../styles/styled-componets';
 
 const NotFound = () => {
   const navigate = useNavigate();
+
   return (
     <StyledMainContainer>
-      <section>
-        <h1>Page Not Found!</h1>
+      <section className='not-found'>
         <div>
           <Button className='home' onClick={() => navigate('/')}>
             Home

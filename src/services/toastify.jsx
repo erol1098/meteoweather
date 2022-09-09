@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//? For Toastify Messages
 const toastify = (action, msg) => {
   switch (action) {
     case 'success':

@@ -18,6 +18,7 @@ export const AppContextProvider = ({ children }) => {
     degree: '°C',
   });
 
+  //? Firebase authentication methods from my "web-firebase" library
   const { createUser, signIn, logOut, googleAuth, errorAuth, userInfo } =
     useFirebase();
 

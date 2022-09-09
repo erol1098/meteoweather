@@ -53,7 +53,6 @@ $ git clone https://github.com/erol1098/meteo
 # Install dependencies
     $ yarn
 
-
 # Add .env file for API Keys and Firebase App Config
 
 # Run the app

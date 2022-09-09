@@ -1,4 +1,8 @@
 import axios from 'axios';
+
+import toastify from './toastify';
+
+//? Fetch Weather Data According To Location Info
 const getData = async (setDefaultQuery, lat, lon) => {
   try {
     const { data } = await axios.get(
@@ -6,7 +10,7 @@ const getData = async (setDefaultQuery, lat, lon) => {
     );
     setDefaultQuery(data);
   } catch (error) {
-    console.log('Error', error.response.data.message);
+    toastify('Error', error.response.data.message);
   }
 };
 

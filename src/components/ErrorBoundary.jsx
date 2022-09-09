@@ -8,10 +8,9 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Bir sonraki render'da son çare arayüzünü göstermek için
-    // state'i güncelleyin.
     return { hasError: true };
   }
+
   componentDidCatch(error, errorInfo) {
     // Hatanızı bir hata bildirimi servisine de yollayabilirsiniz.
     // logErrorToMyService(error, errorInfo);
@@ -19,7 +18,6 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // İstediğiniz herhangi bir son çare arayüzünü render edebilirsiniz.
       return (
         <StyledError>
           <h1>Something went wrong.</h1>
