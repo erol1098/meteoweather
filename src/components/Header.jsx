@@ -42,7 +42,7 @@ const Header = ({ userInfo, logOut }) => {
       </div>
       <GeoapifyContext apiKey={process.env.REACT_APP_CITY_API_KEY}>
         <GeoapifyGeocoderAutocomplete
-          placeholder='Enter address here'
+          placeholder='Search for a city...'
           placeSelect={onPlaceSelect}
           postprocessHook={postprocessHook}
         />

@@ -3,6 +3,15 @@ import styled from 'styled-components';
 import Bg from '../assets/bg.jpg';
 import NotFound from '../assets/not-found.png';
 
+// --bs-primary: #0d6efd;
+// --bs-secondary: #6c757d;
+// --bs-success: #198754;
+// --bs-info: #0dcaf0;
+// --bs-warning: #ffc107;
+// --bs-danger: #dc3545;
+// --bs-light: #f8f9fa;
+// --bs-dark: #212529;
+
 export const GlobalStyle = createGlobalStyle`
 * {
   margin:0;
@@ -512,26 +521,44 @@ export const Button = styled.button`
   font-weight: 600;
 
   &.home {
-    background-color: green;
-    color: white;
+    background-color: #198754;
+    color: #f8f9fa;
   }
 
   &.go-back {
-    background-color: yellow;
+    background-color: #ffc107;
   }
 
   &.logout-btn {
-    border: 3px solid #f32424;
-    color: #f32424;
+    border: 2px solid #0dcaf0;
+    color: #0dcaf0;
+    background-color: #f8f9fa;
+
+    &:hover {
+      background-color: #0dcaf0;
+      color: #f8f9fa;
+    }
   }
 
   &.register-btn {
-    border: 3px solid #5800ff;
-    color: #5800ff;
+    border: 2px solid #0d6efd;
+    color: #0d6efd;
+    background-color: #f8f9fa;
+
+    &:hover {
+      background-color: #0d6efd;
+      color: #f8f9fa;
+    }
   }
 
   &.login-btn {
-    border: 3px solid rgb(1, 107, 1);
-    color: green;
+    border: 2px solid #198754;
+    color: #198754;
+    background-color: #f8f9fa;
+
+    &:hover {
+      background-color: #198754;
+      color: #f8f9fa;
+    }
   }
 `;

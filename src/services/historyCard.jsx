@@ -18,7 +18,6 @@ const getData = async (searchParams, setResponse, setLoading) => {
 };
 
 const historyCard = (searchParams, setResponse, setLoading) => {
-  console.log('first');
   getData(searchParams, setResponse, setLoading);
 };
 export default historyCard;

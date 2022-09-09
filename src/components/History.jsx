@@ -7,7 +7,6 @@ import historyCard from '../services/historyCard';
 const History = ({ queries, setResponse, setLoading }) => {
   //? Fetch current weather data of clicked history city's item
   const handleClick = (searchParams) => {
-    console.log('object');
     historyCard(searchParams, setResponse, setLoading);
   };
 
@@ -37,7 +36,7 @@ const History = ({ queries, setResponse, setLoading }) => {
             <td>
               <div className='img-wrapper'>
                 <img
-                  src={`http://openweathermap.org/img/wn/${query?.response?.weather[0]?.icon.replace(
+                  src={`https://openweathermap.org/img/wn/${query?.response?.weather[0]?.icon.replace(
                     'n',
                     'd'
                   )}@2x.png`}
