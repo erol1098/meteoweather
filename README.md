@@ -1,15 +1,11 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">Meteo</h1>
+<h1 align="center">Meteoweather</h1>
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
-      Demo
-    </a>
-     | 
-    <a href="https://{your-url-to-the-solution}">
-      Project
+    <a href="https://meteoweather.vercel.app/">
+      Live Demo
     </a>
  
   </h3>
@@ -34,7 +30,7 @@
 ![image](https://user-images.githubusercontent.com/99766307/189446094-3bce2b8a-b9e2-4d6c-b698-9922977137f8.png)
 
 
-### Built With
+## Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
@@ -67,5 +63,5 @@ $ git clone https://github.com/erol1098/meteo
 
 ## Contact
 
-- GitHub [@your-username](https://github.com/erol1098)
-- Linkedin [@your-linkedin](https://www.linkedin.com/in/erol-mahmutoglu/)
+- GitHub [erol1098](https://github.com/erol1098)
+- Linkedin [Erol Mahmutoglu](https://www.linkedin.com/in/erol-mahmutoglu/)
