@@ -171,6 +171,7 @@ export const StyledHeader = styled.header`
     justify-content: center;
     gap: 1rem;
   }
+
   min-height: 6rem;
   display: flex;
   justify-content: space-between;
@@ -197,7 +198,11 @@ export const StyledHeader = styled.header`
 
   & > .logo {
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.7);
+
+    & > h1 {
+      font-size: 1.6rem;
+      color: rgba(0, 0, 0, 0.8);
+    }
   }
 
   & .geocoder-container {
@@ -530,12 +535,12 @@ export const Button = styled.button`
   }
 
   &.logout-btn {
-    border: 2px solid #0dcaf0;
-    color: #0dcaf0;
+    border: 2px solid #3498db;
+    color: #3498db;
     background-color: #f8f9fa;
 
     &:hover {
-      background-color: #0dcaf0;
+      background-color: #3498db;
       color: #f8f9fa;
     }
   }

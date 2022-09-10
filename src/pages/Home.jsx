@@ -6,22 +6,13 @@ import History from '../components/History';
 import withContext from '../hocs/withContext';
 
 import defaultCard from '../services/defaultCard';
-import setStorage from '../services/local-storage';
 import setBg from '../services/setBg';
 
 const Home = ({ response, loading, detailPageTheme, setDetailPageTheme }) => {
   window.scroll(0, 0);
 
-  //? For historical data
-  const [queries, setQueries] = useState(
-    JSON.parse(localStorage.getItem('history')) || []
-  );
+  //? For default card data
   const [defaultQuery, setDefaultQuery] = useState();
-
-  //? Writing Responses to the Local Storage
-  useEffect(() => {
-    setStorage(response, setQueries);
-  }, [response]);
 
   //? Default card render if Location Services is allowed
   useEffect(() => {
@@ -58,7 +49,7 @@ const Home = ({ response, loading, detailPageTheme, setDetailPageTheme }) => {
         )}
       </div>
       <div className='history-items'>
-        <History queries={queries} />
+        <History />
       </div>
     </StyledContainer>
   );

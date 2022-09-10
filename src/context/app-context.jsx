@@ -5,12 +5,14 @@ import useFirebase from '../hooks/useFirebase';
 const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [response, setResponse] = useState();
   const [loading, setLoading] = useState(false);
   const [daily, setDaily] = useState();
   const [dailyLoading, setDailyLoading] = useState(false);
   const [detailPageTheme, setDetailPageTheme] = useState('empty');
+  const [historyItems, setHistoryItems] = useState(
+    JSON.parse(localStorage.getItem('history')) || []
+  );
 
   const [units, setUnits] = useState('metric');
   const [measurements, setMeasurements] = useState({
@@ -43,8 +45,8 @@ export const AppContextProvider = ({ children }) => {
     setUnits,
     measurements,
     setMeasurements,
-    isLoggedIn,
-    setIsLoggedIn,
+    historyItems,
+    setHistoryItems,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

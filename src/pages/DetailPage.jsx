@@ -32,8 +32,9 @@ const DetailPage = ({
   const { query } = useParams();
   const arr = query.split('-');
 
-  useFetchData({ city: arr[0]?.toLocaleLowerCase(), code: arr[1] }, 'current'); //? For current data
-  useFetchData({ city: arr[0]?.toLocaleLowerCase(), code: arr[1] }, 'daily'); //? For daily data
+  useFetchData({ city: arr[0]?.toLowerCase(), code: arr[1] }, 'current', 0); //? For current data
+
+  useFetchData({ city: arr[0]?.toLowerCase(), code: arr[1] }, 'daily'); //? For daily data
 
   useEffect(() => {
     setBg(response?.weather[0]?.id, setDetailPageTheme);

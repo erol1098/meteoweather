@@ -13,6 +13,10 @@ const withContext = (WrappedComponent) => {
       loading,
       setLoading,
 
+      //? History
+      historyItems,
+      setHistoryItems,
+
       //? Daily Cards
       daily,
       setDaily,
@@ -44,6 +48,8 @@ const withContext = (WrappedComponent) => {
         setResponse={setResponse}
         loading={loading}
         setLoading={setLoading}
+        historyItems={historyItems}
+        setHistoryItems={setHistoryItems}
         daily={daily}
         setDaily={setDaily}
         dailyLoading={dailyLoading}

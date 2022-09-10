@@ -4,10 +4,15 @@ import { StyledTable } from '../styles/styled-componets';
 import withContext from '../hocs/withContext';
 import historyCard from '../services/historyCard';
 
-const History = ({ queries, setResponse, setLoading }) => {
+const History = ({
+  setResponse,
+  setLoading,
+  historyItems,
+  setHistoryItems,
+}) => {
   //? Fetch current weather data of clicked history city's item
   const handleClick = (searchParams) => {
-    historyCard(searchParams, setResponse, setLoading);
+    historyCard(searchParams, setResponse, setLoading, setHistoryItems);
   };
 
   return (
@@ -20,12 +25,12 @@ const History = ({ queries, setResponse, setLoading }) => {
         </tr>
       </thead>
       <tbody>
-        {!queries.length && (
+        {!historyItems?.length && (
           <tr>
             <td>No Item Found!</td>
           </tr>
         )}
-        {queries?.map((query, i) => (
+        {historyItems?.map((query, i) => (
           <tr key={i} onClick={() => handleClick(query?.response?.coord)}>
             <td>
               <p>
