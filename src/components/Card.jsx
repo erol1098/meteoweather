@@ -62,10 +62,7 @@ const Card = ({ data, loading, measurements }) => {
           </div>
           <div className='img-wrapper'>
             <img
-              src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon.replace(
-                'n',
-                'd'
-              )}@4x.png`}
+              src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@4x.png`}
               alt='icon'
             />
           </div>

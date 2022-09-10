@@ -1,7 +1,7 @@
 const setStorage = (response, setQueries) => {
   if (localStorage.getItem('history') && response) {
     const arr = JSON.parse(localStorage.getItem('history'));
-
+    console.log('object');
     if (
       arr.every(
         (city) =>
@@ -19,6 +19,7 @@ const setStorage = (response, setQueries) => {
           city.response.coord.lat !== response.coord.lat
       );
       tempArr.unshift({ response });
+      localStorage.setItem('history', JSON.stringify(tempArr.slice(0, 4)));
       setQueries(tempArr.slice(0, 4));
     }
   } else {

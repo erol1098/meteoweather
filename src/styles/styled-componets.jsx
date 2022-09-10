@@ -242,7 +242,11 @@ export const StyledCard = styled.section`
   border-radius: 1rem;
   cursor: pointer;
   transition: transform 1s;
-  background-color: rgba(51, 51, 51, 0.8);
+  /* background-color: rgb(52, 152, 219, 0.9);
+  background-color: rgb(3, 105, 161, 0.9);
+  background-color: rgb(15, 118, 110, 0.9); */
+  background-color: rgb(14, 116, 144, 0.9);
+
   color: #fff;
 
   & > .card-header {
@@ -344,7 +348,7 @@ export const StyledTable = styled.table`
   border-spacing: 0 0.3rem;
   font-size: 1.3rem;
   color: #fff;
-  background-color: rgba(44, 62, 80, 0.6);
+  background-color: rgba(44, 62, 80, 0.8);
   padding: 1rem;
   border-radius: 1rem;
   & th {
@@ -354,6 +358,7 @@ export const StyledTable = styled.table`
   & tr {
     height: 2rem;
     background-color: rgba(51, 51, 51, 0.8);
+    background-color: rgb(14, 116, 144, 0.8);
   }
 
   & td {

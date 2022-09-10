@@ -41,10 +41,7 @@ const History = ({
             <td>
               <div className='img-wrapper'>
                 <img
-                  src={`https://openweathermap.org/img/wn/${query?.response?.weather[0]?.icon.replace(
-                    'n',
-                    'd'
-                  )}@2x.png`}
+                  src={`https://openweathermap.org/img/wn/${query?.response?.weather[0]?.icon}@2x.png`}
                   alt='icon'
                 />
               </div>
