@@ -1,33 +1,30 @@
 const setStorage = (response, setQueries) => {
-  const searchParams = `${response?.name?.toLowerCase()},${response?.sys?.country?.toLowerCase()}`;
-
   if (localStorage.getItem('history') && response) {
     const arr = JSON.parse(localStorage.getItem('history'));
 
     if (
       arr.every(
         (city) =>
-          city.response.name.toLowerCase() !== response.name.toLowerCase()
+          city.response.name.toLowerCase() !== response.name.toLowerCase() &&
+          city.response.coord.lat !== response.coord.lat
       )
     ) {
-      arr.unshift({ searchParams, response });
+      arr.unshift({ response });
       localStorage.setItem('history', JSON.stringify(arr.slice(0, 4)));
       setQueries(arr.slice(0, 4));
     } else {
       const tempArr = arr.filter(
         (city) =>
-          city.response.name.toLowerCase() !== response.name.toLowerCase()
+          city.response.name.toLowerCase() !== response.name.toLowerCase() &&
+          city.response.coord.lat !== response.coord.lat
       );
-      tempArr.unshift({ searchParams, response });
+      tempArr.unshift({ response });
       setQueries(tempArr.slice(0, 4));
     }
   } else {
     response &&
-      localStorage.setItem(
-        'history',
-        JSON.stringify([{ searchParams, response }])
-      ) &&
-      setQueries([{ searchParams, response }]);
+      localStorage.setItem('history', JSON.stringify([{ response }])) &&
+      setQueries([{ response }]);
   }
 };
 export default setStorage;

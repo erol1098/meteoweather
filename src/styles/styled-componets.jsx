@@ -93,6 +93,7 @@ export const StyledDetailContainer = styled.main`
         order: 2;
       }
     }
+
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -104,10 +105,13 @@ export const StyledDetailContainer = styled.main`
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
         rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
       color: #fff;
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 1rem;
       border-radius: 1rem;
       height: 18rem;
       width: 20rem;
+      display: flex;
+      flex-direction: column;
       transition: transform 1s;
       cursor: pointer;
 
@@ -115,14 +119,15 @@ export const StyledDetailContainer = styled.main`
         transform: scale(1.1);
       }
     }
+
+    & > section:nth-child(2) {
+      width: 27rem;
+    }
   }
 
   & .right-side,
   .middle-side {
-    display: flex;
-    flex-direction: column;
     gap: 1.4rem;
-    background-color: rgba(0, 0, 0, 0.6);
     font-size: 1.2rem;
 
     & > div,
@@ -135,13 +140,10 @@ export const StyledDetailContainer = styled.main`
     }
   }
   & .left-side {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     font-size: 1.5rem;
-    background-color: rgba(0, 0, 0, 0.7);
     padding: 0.2rem 0;
 
     & > div,
