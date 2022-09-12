@@ -3,7 +3,7 @@ import {
   StyledDetailContainer,
   StyledDailyContainer,
 } from '../styles/styled-componets';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, useNavigate } from 'react-router-dom';
 
 import { SpinnerCircularFixed } from 'spinners-react';
 
@@ -28,6 +28,8 @@ const DetailPage = ({
   setDetailPageTheme,
   token,
 }) => {
+  const navigate = useNavigate();
+
   //? Taking search query from URL and fetching current and daily data
   const { query } = useParams();
   const arr = query.split('-');
@@ -45,6 +47,10 @@ const DetailPage = ({
     return (
       <>
         <StyledDetailContainer theme={detailPageTheme}>
+          <h2 onClick={() => navigate('/')}>
+            {'< '}
+            <u>Back</u>
+          </h2>
           <section className='top-side'>
             <section className='middle-side'>
               <div>

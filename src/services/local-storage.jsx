@@ -1,7 +1,6 @@
 const setStorage = (response, setQueries) => {
   if (localStorage.getItem('history') && response) {
     const arr = JSON.parse(localStorage.getItem('history'));
-    console.log('object');
     if (
       arr.every(
         (city) =>

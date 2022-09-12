@@ -25,7 +25,9 @@ const Card = ({ data, loading, measurements }) => {
       <StyledCard
         onClick={() =>
           navigate(
-            `/details/${data?.name?.toLowerCase()}-${data?.sys?.country?.toLowerCase()}`
+            `/details/${data?.name
+              ?.replace(/İ/gim, 'i')
+              ?.toLowerCase()}-${data?.sys?.country?.toLowerCase()}`
           )
         }
       >

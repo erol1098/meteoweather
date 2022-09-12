@@ -81,7 +81,16 @@ export const StyledDetailContainer = styled.main`
   align-items: space-between;
   gap: 1rem;
   background: url(${(props) => props.theme}) fixed no-repeat center;
-  padding: 3rem 0;
+  padding: 3rem 0 2rem 0;
+  position: relative;
+
+  & > h2 {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    cursor: pointer;
+    font-weight: 800;
+  }
 
   & > .top-side {
     @media (max-width: 1060px) {
@@ -359,6 +368,11 @@ export const StyledTable = styled.table`
     height: 2rem;
     background-color: rgba(51, 51, 51, 0.8);
     background-color: rgb(14, 116, 144, 0.8);
+    transition: all 0.7s;
+
+    &:hover {
+      background-color: rgb(14, 116, 144, 0.4);
+    }
   }
 
   & td {
@@ -427,6 +441,11 @@ export const StyledDaily = styled.div`
   background-color: #fff;
   font-weight: 600;
   font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.09);
+  }
 `;
 
 export const StyledFooter = styled.footer`
