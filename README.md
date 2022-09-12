@@ -25,9 +25,9 @@
 
 ## Overview
 
-![image](https://user-images.githubusercontent.com/99766307/189446015-2733d508-209c-4485-9980-6b391c43876f.png)
+![image](https://user-images.githubusercontent.com/99766307/189519133-7b27c45e-a833-46f7-bfc3-e784e0d6c4e8.png)
 ##
-![image](https://user-images.githubusercontent.com/99766307/189446094-3bce2b8a-b9e2-4d6c-b698-9922977137f8.png)
+![image](https://user-images.githubusercontent.com/99766307/189519148-9dbb025c-2aa3-44a7-8cf7-30eddfb6deb4.png)
 
 
 ## Built With
@@ -50,7 +50,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com)
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/erol1098/meteoweather
+$ git clone https://github.com/erol1098/meteoweather.git
 
 # Install dependencies
     $ yarn
