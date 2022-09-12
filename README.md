@@ -40,7 +40,11 @@
 
 ## Features
 
-- Information for your projects
+- This app showed the weather of the searched city using two different weather APIs. By clicking on the current weather card on the main page, detailed information about the current weather conditions and the 10-day weather forecast of that city can be accessed.
+In addition, the last four cities were searched before being listed on the main page. Likewise, by clicking on the cities in this list, the current weather conditions of that city can be accessed.
+
+- I used the "web-firebase" library I wrote for authentication processes. Thanks to this library, you can easily use Firebase's authentication feature.  
+- I am sharing the link to the library here for those who are interested.   <a href="https://www.npmjs.com/package/web-firebase">npm link</a>  
 
 ## How To Use
 
